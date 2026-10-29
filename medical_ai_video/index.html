@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ground: #070D18;
+        --ink: #FFFFFF;
+        --font-display: 'Inter', sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--ground);
+        font-family: var(--font-display);
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-jzya"
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="126"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- Scene 1: Physician Authentication & Access (0s - 14s) -->
+      <div data-hf-id="hf-ehrc"
+        id="scene3-login"
+        class="clip"
+        data-composition-id="scene3-login"
+        data-composition-src="compositions/scene3-login.html"
+        data-start="0"
+        data-duration="14"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Scene 2: Rapid Patient Intake & Queueing (14s - 32s) -->
+      <div data-hf-id="hf-sg4v"
+        id="scene4-registration"
+        class="clip"
+        data-composition-id="scene4-registration"
+        data-composition-src="compositions/scene4-registration.html"
+        data-start="14"
+        data-duration="18"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Scene 3: Diagnostic Study Ingestion (32s - 47s) -->
+      <div data-hf-id="hf-6hrq"
+        id="scene5-ingestion"
+        class="clip"
+        data-composition-id="scene5-ingestion"
+        data-composition-src="compositions/scene5-ingestion.html"
+        data-start="32"
+        data-duration="15"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Scene 4: Multimodal Radiology AI Co-Pilot (47s - 82s) -->
+      <div data-hf-id="hf-wwy7"
+        id="scene6-radiology"
+        class="clip"
+        data-composition-id="scene6-radiology"
+        data-composition-src="compositions/scene6-radiology.html"
+        data-start="47"
+        data-duration="35"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Scene 5: Dermatology Clinical Co-Pilot (82s - 104s) -->
+      <div data-hf-id="hf-76ep"
+        id="scene7-dermatology"
+        class="clip"
+        data-composition-id="scene7-dermatology"
+        data-composition-src="compositions/scene7-dermatology.html"
+        data-start="82"
+        data-duration="22"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+
+      <!-- Scene 6: Retinal Fundus AI & Microvascular Staging (104s - 126s) -->
+      <div data-hf-id="hf-eqgs"
+        id="scene8-ophthalmology"
+        class="clip"
+        data-composition-id="scene8-ophthalmology"
+        data-composition-src="compositions/scene8-ophthalmology.html"
+        data-start="104"
+        data-duration="22"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

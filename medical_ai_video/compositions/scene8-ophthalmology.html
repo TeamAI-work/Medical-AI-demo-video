@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scene 8: Retinal Fundus AI & Microvascular Staging</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 p-0 overflow-hidden bg-[#EBEFF5]">
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          background-color: #EBEFF5;
+          background-image: 
+            radial-gradient(1200px 600px at 85% -10%, rgba(36, 107, 253, 0.08), transparent 60%),
+            radial-gradient(900px 500px at -10% 110%, rgba(29, 52, 99, 0.07), transparent 60%);
+          font-family: 'Inter', sans-serif;
+          color: #16233B;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .virtual-cursor {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          z-index: 150;
+          pointer-events: none;
+          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        .caret {
+          display: inline-block;
+          width: 2px;
+          height: 14px;
+          background: #1D3463;
+          margin-left: 1px;
+          vertical-align: middle;
+          animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+          0%, 49% { opacity: 1; }
+          50%, 100% { opacity: 0; }
+        }
+      </style>
+
+      <div data-hf-id="hf-root8" id="root" data-composition-id="scene8-ophthalmology" data-width="1920" data-height="1080">
+        <!-- Virtual Cursor -->
+        <svg data-hf-id="hf-cursor8" id="cursor" class="virtual-cursor clip" data-start="0.5" data-duration="21.5" viewBox="0 0 24 24" fill="none">
+          <path data-hf-id="hf-cpath8" d="M5.5 3.5l12 11.5-5.5 1-2.5 5-2.5-1 2.5-5-4-1.5z" fill="#16233B" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- ── Top Header Bar (Exact MedicalAi/src/App.jsx) ── -->
+        <header data-hf-id="hf-header8" class="relative shrink-0 w-full px-8 py-2.5 bg-white/90 backdrop-blur-md border-b border-[#DCE2EA] flex items-center justify-between shadow-[0_1px_2px_rgba(30,50,90,0.04)] z-30">
+          <div data-hf-id="hf-brand8" class="flex items-center gap-2.5 shrink-0">
+            <div class="w-8 h-8 rounded-xl border border-[#DCE2EA] bg-white shadow-xs flex items-center justify-center p-1">
+              <span class="font-black text-xs text-[#E13333] tracking-tighter leading-none select-none font-sans">MV</span>
+            </div>
+            <div class="min-w-0">
+              <h1 class="text-sm font-semibold text-[#16233B] tracking-tight leading-tight truncate">MedVision AI</h1>
+              <span class="text-[10px] text-[#637188] block truncate leading-tight">Life Care Medico Hospital</span>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-navpill8" class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <nav class="flex items-center bg-[#EBEFF4] p-1 rounded-full border border-[#DCE2EA] shadow-inner gap-1">
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] font-medium">dashboard</button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] font-medium">patients</button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full bg-[#1D3463] text-white shadow-xs font-semibold">report scan</button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] font-medium">settings</button>
+            </nav>
+          </div>
+
+          <div class="shrink-0 w-8"></div>
+        </header>
+
+        <!-- ── Main Workspace Body (Exact RadiologyWorkspace.jsx in Ophthalmology Mode) ── -->
+        <main class="flex-1 w-full p-4 flex flex-col gap-3 min-h-0 overflow-hidden">
+          
+          <!-- Top Patient Header -->
+          <div class="shrink-0 w-full bg-white/90 backdrop-blur-md rounded-2xl px-5 py-2.5 flex items-center justify-between border border-[#DCE2EA] shadow-xs">
+            <div class="flex items-center gap-3.5">
+              <div class="w-9 h-9 rounded-full bg-[#F3E8FF] text-[#6B21A8] border border-[#E9D5FF] flex items-center justify-center font-bold text-xs shrink-0">
+                MT
+              </div>
+              <div class="flex items-center gap-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h2 class="text-sm font-bold text-[#16233B]">Marcus Thorne</h2>
+                    <span class="text-xs text-[#637188] font-medium">(62y, Male)</span>
+                    <span class="px-2 py-0.2 rounded-full text-[10px] font-bold bg-[#F3E8FF] text-[#6B21A8] border border-[#E9D5FF]">DIABETIC RETINA SCREENING</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-[11px] text-[#637188] mt-0.5 font-mono">
+                    <span>ID: PT-OPHTH-9204</span>
+                    <span>•</span>
+                    <span>Modality: 45° Posterior Pole Fundus Photography OD</span>
+                    <span>•</span>
+                    <span>Acuity: 20/30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#F3E8FF] text-[#6B21A8] border border-[#E9D5FF]">
+                Ophthalmology (Vitreoretinal)
+              </span>
+            </div>
+          </div>
+
+          <!-- ── The Three-Section Split Screen ── -->
+          <div class="grid grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
+            
+            <!-- SECTION 1 (LEFT): RETINAL FUNDUS SCAN IMAGE -->
+            <div class="col-span-4 bg-white/95 rounded-2xl border border-[#DCE2EA] shadow-xs p-3.5 flex flex-col gap-3 min-h-0 overflow-hidden">
+              <div class="flex items-center justify-between pb-2 border-b border-[#DCE2EA] shrink-0">
+                <div class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/></svg>
+                  <span class="text-xs font-bold text-[#16233B]">Posterior Pole Fundus</span>
+                </div>
+                <span class="text-[10px] font-mono text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200">Right Eye (OD)</span>
+              </div>
+
+              <!-- Fundus Viewer Screen -->
+              <div class="flex-1 min-h-[300px] rounded-xl overflow-hidden relative flex items-center justify-center border border-[#DCE2EA] bg-black">
+                <img
+                  src="../assets/sample_data/ophthalmology_fundus.png"
+                  alt="Retinal Fundus Photography OD"
+                  class="w-full h-full object-contain"
+                />
+
+                <!-- AI Optic Nerve & CDR Target Overlay -->
+                <div id="ophth-ring" class="absolute w-[120px] h-[120px] top-[48%] left-[44%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-cyan-400 shadow-[0_0_20px_rgba(0,240,255,0.6)] flex flex-col justify-between p-1.5 pointer-events-none">
+                  <span class="self-start bg-cyan-400 text-black text-[9px] font-bold px-1 rounded uppercase">
+                    CDR: 0.68
+                  </span>
+                  <span class="self-end bg-black/80 text-cyan-300 text-[8.5px] font-mono px-1 rounded">
+                    Borderline Glaucoma
+                  </span>
+                </div>
+
+                <div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-black/80 text-[10px] font-mono text-amber-300 border border-amber-500/20">
+                  4 Microaneurysms Detected
+                </div>
+              </div>
+
+              <!-- Attached Report -->
+              <div class="pt-2 border-t border-[#DCE2EA] flex flex-col gap-1.5 shrink-0">
+                <div class="p-2 bg-[#F8FAFC] border border-[#DCE2EA] rounded-xl flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded bg-[#FDEAEA] text-[#E13333] flex items-center justify-center font-bold text-[10px]">PDF</div>
+                    <div>
+                      <div class="text-[11px] font-semibold text-[#16233B]">retinal_fundus_evaluation.pdf</div>
+                      <div class="text-[9.5px] text-[#637188] font-mono">215 KB • Verified</div>
+                    </div>
+                  </div>
+                  <span class="text-[10px] text-[#246BFD] font-semibold">View</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 2 (MIDDLE): DIAGNOSTIC OPHTHALMOLOGY REPORT -->
+            <div class="col-span-4 bg-white/95 rounded-2xl border border-[#DCE2EA] shadow-xs flex flex-col min-h-0 overflow-hidden">
+              <div class="px-4 py-3 border-b border-[#DCE2EA] flex items-center justify-between bg-white shrink-0">
+                <h3 class="text-xs font-bold text-[#16233B] uppercase tracking-wider">Diagnostic Ophthalmology Report</h3>
+                <span class="text-[10px] font-mono text-[#637188] bg-[#F1F5F9] px-1.5 py-0.5 rounded border border-[#DCE2EA]">PT-OPHTH-9204</span>
+              </div>
+
+              <div class="p-4 flex-1 overflow-y-auto flex flex-col gap-3 text-xs leading-relaxed">
+                <div>
+                  <span class="font-bold text-[#16233B]">Indication:</span>
+                  <p class="text-[#475569] mt-0.5">Annual diabetic eye screening in 62-year-old male with 8-year history of Type-2 Diabetes Mellitus (HbA1c 7.6%).</p>
+                </div>
+
+                <!-- ICDR Staging Card -->
+                <div class="p-3 bg-[#F3E8FF]/60 border border-[#A855F7]/30 rounded-xl flex flex-col gap-2">
+                  <div class="flex items-center justify-between border-b border-[#A855F7]/20 pb-1.5">
+                    <span class="font-bold text-[#6B21A8] text-xs">Diabetic Retinopathy Classification (ICDR)</span>
+                    <span class="font-bold text-[10px] text-purple-800 bg-white px-2 py-0.5 rounded-full border border-purple-200">Stage: Mild NPDR</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-2 text-[11px]">
+                    <div><strong>Microaneurysms:</strong> 4 punctate spots</div>
+                    <div><strong>Macular Edema:</strong> Absent (No CSME)</div>
+                    <div><strong>Optic Disc CDR:</strong> 0.68 vertical</div>
+                    <div><strong>Exudates:</strong> None observed</div>
+                  </div>
+                </div>
+
+                <!-- Impression Box -->
+                <div class="p-3 bg-[#E7EEFE]/60 border border-[#246BFD]/25 rounded-xl flex flex-col gap-1.5">
+                  <span class="font-bold text-[#154CC1]">Diagnostic Impression:</span>
+                  <p class="text-[#16233B] font-medium text-[11.5px]">
+                    1. <strong>Mild Non-Proliferative Diabetic Retinopathy (NPDR)</strong> without macular edema.<br/>
+                    2. Borderline vertical cup-to-disc ratio (CDR 0.68) suspicious for early open-angle glaucoma.<br/>
+                    3. Recommend Humphrey Visual Field (24-2) and OCT RNFL perimetry within 4 weeks.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 3 (RIGHT): REPORTCHATPANEL.JSX CO-PILOT -->
+            <div class="col-span-4 bg-white/95 rounded-2xl border border-[#DCE2EA] shadow-xs flex flex-col min-h-0 overflow-hidden">
+              <div class="px-4 py-3 bg-white border-b border-[#DCE2EA] flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-xl bg-[#E7EEFE] text-[#154CC1] border border-[#246BFD]/25 flex items-center justify-center shrink-0 shadow-xs">
+                    <svg class="w-4 h-4 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-[#16233B] leading-tight">Clinical Report AI Co-Pilot</h4>
+                    <span class="text-[10px] text-[#637188] block">Grounded in Retinal Fundus & ICDR staging</span>
+                  </div>
+                </div>
+                <span class="text-[10px] font-semibold text-purple-800 bg-[#F3E8FF] px-2 py-0.5 rounded-full border border-[#E9D5FF]">MedGemma Retinal</span>
+              </div>
+
+              <!-- Suggested Prompts (Exact departmentPrompts for Ophthalmology) -->
+              <div class="px-3 py-2 bg-[#F8FAFC] border-b border-[#DCE2EA] flex items-center gap-1.5 overflow-x-auto shrink-0">
+                <span class="px-2.5 py-1 bg-white hover:bg-slate-50 border border-[#DCE2EA] rounded-full text-[10.5px] font-medium text-[#16233B] whitespace-nowrap">Evaluate CDR & optic disc</span>
+                <span class="px-2.5 py-1 bg-white hover:bg-slate-50 border border-[#DCE2EA] rounded-full text-[10.5px] font-medium text-[#16233B] whitespace-nowrap">Check macular edema risk</span>
+                <span class="px-2.5 py-1 bg-white hover:bg-slate-50 border border-[#DCE2EA] rounded-full text-[10.5px] font-medium text-[#16233B] whitespace-nowrap">Diabetic retinopathy staging</span>
+              </div>
+
+              <!-- Chat Message Thread -->
+              <div id="chat-thread" class="p-3.5 flex-1 overflow-y-auto flex flex-col gap-3 min-h-0 text-xs">
+                <!-- User message -->
+                <div id="msg-user" class="px-3.5 py-2.5 rounded-2xl bg-[#1D3463] text-white text-xs max-w-[85%] self-end shadow-xs" style="display: none; opacity: 0;">
+                  <span id="typed-query"></span>
+                </div>
+
+                <!-- AI response -->
+                <div id="msg-ai" class="px-3.5 py-2.5 rounded-2xl bg-[#F8FAFC] border border-[#DCE2EA] text-[#16233B] text-xs max-w-[92%] self-start flex flex-col gap-1.5 shadow-2xs" style="display: none; opacity: 0;">
+                  <div class="flex items-center gap-1.5 font-bold text-[#154CC1] text-[11px]">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+                    <span>MedGemma Vitreoretinal Synthesis</span>
+                  </div>
+                  <p class="leading-relaxed text-[11.5px]">
+                    Per <strong>American Academy of Ophthalmology (AAO) PPP Guidelines</strong>:
+                  </p>
+                  <ul class="list-disc pl-4 space-y-0.5 text-[11px] text-[#475569]">
+                    <li><strong>Staging:</strong> Mild Non-Proliferative Diabetic Retinopathy (NPDR, ICDR Level 2).</li>
+                    <li><strong>Follow-up Interval:</strong> Annual dilated retinal examination in 12 months.</li>
+                    <li><strong>Glaucoma Precaution:</strong> Vertical CDR 0.68 exceeds normal population mean (0.40); order baseline OCT RNFL & visual field testing within 4 weeks.</li>
+                  </ul>
+                  <div class="pt-1 border-t border-[#E2E8F0] text-[9.5px] text-[#637188] flex items-center justify-between">
+                    <span>Guideline Concordance: 99.3%</span>
+                    <span>Ref: AAO Retina & Glaucoma PPP 2024</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Box -->
+              <div class="p-3 bg-white border-t border-[#DCE2EA] flex items-center gap-2 shrink-0">
+                <div id="chat-input-box" class="flex-1 bg-[#F8FAFC] border border-[#DCE2EA] rounded-xl px-3 py-2 text-xs flex items-center min-h-[36px]">
+                  <span id="chat-val" class="font-medium text-[#16233B]"></span>
+                  <span id="chat-caret" class="caret" style="display: none;"></span>
+                  <span id="chat-ph" class="text-[#8C98A9]">Ask clinical co-pilot about this fundus photo...</span>
+                </div>
+                <button id="chat-send-btn" class="w-8 h-8 rounded-xl bg-[#1D3463] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <script>
+        (function() {
+          const tl = gsap.timeline({ paused: true });
+          window.__timelines = window.__timelines || {};
+      window.__timelines["scene8-ophthalmology"] = tl;
+
+      function buildTypingSteps(text) {
+        const steps = [];
+        for (let i = 1; i <= text.length; i++) {
+          steps.push(text.slice(0, i));
+        }
+        return steps;
+      }
+
+      // Initial state
+      tl.set("#cursor", { x: 500, y: 300, opacity: 0 });
+      tl.set("#ophth-ring", { scale: 0.9, opacity: 0 });
+      tl.set("#msg-user", { display: "none", opacity: 0 });
+      tl.set("#msg-ai", { display: "none", opacity: 0 });
+
+      // 0.0s - 0.5s: Cursor enters
+      tl.to("#cursor", { opacity: 1, duration: 0.3 }, 0.5);
+
+      // 1.0s: AI Optic Disc tracking ring locks onto optic nerve head
+      tl.to("#ophth-ring", { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, 1.0);
+
+      // 2.5s - 4.5s: Cursor inspects CDR 0.68 cupping indicator
+      tl.to("#cursor", { x: 380, y: 480, duration: 1.0, ease: "power2.inOut" }, 2.5);
+
+      // 5.5s - 7.5s: Move cursor to Chat Input Box
+      tl.to("#cursor", { x: 1600, y: 885, duration: 1.2, ease: "power2.inOut" }, 5.5);
+
+      // 7.8s: Focus Chat Input
+      tl.call(() => {
+        document.getElementById("chat-ph").style.display = "none";
+        document.getElementById("chat-caret").style.display = "inline-block";
+        document.getElementById("chat-input-box").classList.add("border-[#1D3463]", "bg-white", "ring-2", "ring-[#1D3463]/10");
+      }, null, 7.8);
+
+      // 8.0s - 12.0s: Real human character-by-character typing:
+      const chatQuery = "Diabetic retinopathy staging and follow-up interval?";
+      const chatSteps = buildTypingSteps(chatQuery);
+      chatSteps.forEach((str, i) => {
+        const t = 8.0 + (i * 0.08);
+        tl.call(() => {
+          document.getElementById("chat-val").textContent = str;
+        }, null, t);
+      });
+
+      // 12.5s - 13.2s: Move cursor to Send Button
+      tl.to("#cursor", { x: 1870, y: 885, duration: 0.5, ease: "power2.inOut" }, 12.5);
+
+      // 13.5s: Click Send
+      tl.to("#chat-send-btn", { scale: 0.94, duration: 0.1 }, 13.5);
+      tl.to("#chat-send-btn", { scale: 1, duration: 0.15 }, 13.6);
+
+      // 13.7s: Show user bubble
+      tl.call(() => {
+        document.getElementById("chat-caret").style.display = "none";
+        document.getElementById("chat-val").textContent = "";
+        document.getElementById("chat-ph").style.display = "inline";
+        document.getElementById("typed-query").textContent = chatQuery;
+        const u = document.getElementById("msg-user");
+        u.style.display = "block";
+      }, null, 13.7);
+      tl.to("#msg-user", { opacity: 1, duration: 0.2 }, 13.8);
+
+      // 14.5s: MedGemma Retinal AI returns staging & follow-up
+      tl.call(() => {
+        const a = document.getElementById("msg-ai");
+        a.style.display = "flex";
+      }, null, 14.5);
+      tl.to("#msg-ai", { opacity: 1, duration: 0.4, ease: "power2.out" }, 14.6);
+
+      // 16.0s - 17.5s: Cursor moves to inspect ICDR staging recommendations
+      tl.to("#cursor", { x: 1650, y: 560, duration: 1.2, ease: "power2.inOut" }, 16.0);
+
+      // 18.0s - 19.5s: Cursor returns to inspect Optic Disc CDR ring
+      tl.to("#cursor", { x: 380, y: 480, duration: 1.2, ease: "power2.inOut" }, 18.0);
+
+      // 20.0s - 21.5s: Optic disc ring pulses
+      tl.to("#ophth-ring", { scale: 1.08, duration: 0.6, yoyo: true, repeat: 1, ease: "power1.inOut" }, 20.0);
+
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

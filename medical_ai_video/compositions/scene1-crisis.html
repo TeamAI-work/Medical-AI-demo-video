@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scene 1: Diagnostic Crisis</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          background: radial-gradient(circle at 50% 40%, #162444 0%, #0A1122 100%);
+          font-family: 'Inter', sans-serif;
+          color: #FFFFFF;
+          overflow: hidden;
+        }
+
+        /* Subtle Medical Grid */
+        .grid-bg {
+          position: absolute;
+          inset: 0;
+          background-size: 40px 40px;
+          background-image: 
+            linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+          opacity: 0.8;
+        }
+
+        /* Ambient Glow Blobs */
+        .glow-red {
+          position: absolute;
+          top: 20%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 600px;
+          height: 600px;
+          background: radial-gradient(circle, rgba(225, 51, 51, 0.12) 0%, transparent 70%);
+          filter: blur(60px);
+          pointer-events: none;
+        }
+
+        /* Top HUD Bar */
+        .hud-bar {
+          position: absolute;
+          top: 60px;
+          left: 100px;
+          right: 100px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          z-index: 10;
+        }
+
+        .hud-pill {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 10px 20px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 9999px;
+          backdrop-filter: blur(12px);
+        }
+
+        .pulse-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #E13333;
+          box-shadow: 0 0 12px #E13333;
+        }
+
+        /* Center Stage Layout */
+        .center-stage {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding-top: 40px;
+        }
+
+        /* Stack of Clinical Reports (Isometric Perspective) */
+        .reports-container {
+          position: relative;
+          width: 620px;
+          height: 380px;
+          perspective: 1200px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .report-card {
+          position: absolute;
+          width: 540px;
+          padding: 24px 28px;
+          background: rgba(255, 255, 255, 0.95);
+          color: #16233B;
+          border-radius: 16px;
+          border: 1px solid rgba(220, 226, 234, 0.9);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.1);
+          transform-origin: center center;
+        }
+
+        .report-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 2px solid #EBEFF5;
+          padding-bottom: 12px;
+          margin-bottom: 14px;
+        }
+
+        .report-title {
+          font-size: 14px;
+          font-weight: 800;
+          letter-spacing: 0.05em;
+          color: #1D3463;
+        }
+
+        .report-badge {
+          font-size: 11px;
+          font-weight: 700;
+          padding: 4px 10px;
+          border-radius: 6px;
+          text-transform: uppercase;
+        }
+
+        .badge-stat {
+          background: #FDEAEA;
+          color: #AD1F1F;
+          border: 1px solid rgba(225, 51, 51, 0.2);
+        }
+
+        .report-row {
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px;
+          color: #54637A;
+          margin-bottom: 6px;
+        }
+
+        .report-row strong {
+          color: #16233B;
+        }
+
+        .missed-alert-box {
+          margin-top: 14px;
+          padding: 10px 14px;
+          background: #FFF5EA;
+          border: 1px solid #FFAB38;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .missed-text {
+          font-size: 12px;
+          font-weight: 700;
+          color: #92400E;
+        }
+
+        /* Headline Banner */
+        .bottom-banner {
+          position: absolute;
+          bottom: 70px;
+          left: 0;
+          right: 0;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .main-headline {
+          font-size: 42px;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          background: linear-gradient(180deg, #FFFFFF 0%, #B8C7DE 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .sub-headline {
+          font-size: 18px;
+          color: #8C9BB5;
+          max-w: 800px;
+          font-weight: 500;
+        }
+      </style>
+
+      <div data-hf-id="hf-1vq6" id="root" data-composition-id="scene1-crisis" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-q4u8" class="grid-bg"></div>
+        <div data-hf-id="hf-wmtd" class="glow-red"></div>
+
+        <!-- Top Telemetry HUD -->
+        <div data-hf-id="hf-si7f" class="hud-bar">
+          <div data-hf-id="hf-cmv4" id="hud-backlog" class="hud-pill clip" data-start="0.5" data-duration="15.5">
+            <span data-hf-id="hf-1iu6" class="pulse-dot"></span>
+            <div data-hf-id="hf-yeow">
+              <div data-hf-id="hf-87e2" style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #8C9BB5; font-weight: 700;">Pending Unreviewed Studies</div>
+              <div data-hf-id="hf-9vud" id="counter-backlog" style="font-size: 18px; font-weight: 800; color: #FFFFFF; font-family: 'JetBrains Mono', monospace;">1,482 STUDIES</div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-mt1k" id="hud-fatigue" class="hud-pill clip" data-start="1.5" data-duration="14.5">
+            <div data-hf-id="hf-y7yw">
+              <div data-hf-id="hf-0cw1" style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #8C9BB5; font-weight: 700;">Cognitive Fatigue Index</div>
+              <div data-hf-id="hf-xden" style="font-size: 18px; font-weight: 800; color: #FF9B9B; font-family: 'JetBrains Mono', monospace;">+43% OVER BASELINE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reports Stacking Center Stage -->
+        <div data-hf-id="hf-46tq" class="center-stage">
+          <div data-hf-id="hf-plzn" class="reports-container">
+            <!-- Card 1: MRI Brain -->
+            <div data-hf-id="hf-a0yz" id="card-1" class="report-card clip" data-start="0.2" data-duration="15.8">
+              <div data-hf-id="hf-n22o" class="report-header">
+                <span data-hf-id="hf-tqt1" class="report-title">BRAIN MRI MULTI-SEQUENCE</span>
+                <span data-hf-id="hf-jxy8" class="report-badge" style="background: #EBEFF5; color: #637188;">ROUTINE</span>
+              </div>
+              <div data-hf-id="hf-89wh" class="report-row"><span data-hf-id="hf-ycyw">Patient: <strong data-hf-id="hf-jfdq">Harold Finch (71M)</strong></span><span data-hf-id="hf-495m">MRN: <strong data-hf-id="hf-358l">#MRN-84019</strong></span></div>
+              <div data-hf-id="hf-clrp" class="report-row"><span data-hf-id="hf-l37r">Protocol: Axial T1, T2, FLAIR, DWI</span><span data-hf-id="hf-c00t">Slices: 168</span></div>
+            </div>
+
+            <!-- Card 2: Retinal Fundus -->
+            <div data-hf-id="hf-jtb2" id="card-2" class="report-card clip" data-start="1.8" data-duration="14.2">
+              <div data-hf-id="hf-p2d4" class="report-header">
+                <span data-hf-id="hf-fn7u" class="report-title">OPHTHALMIC FUNDUS MAPPING</span>
+                <span data-hf-id="hf-j34d" class="report-badge" style="background: #FFF5EA; color: #B56200;">URGENT</span>
+              </div>
+              <div data-hf-id="hf-dsos" class="report-row"><span data-hf-id="hf-uqlc">Patient: <strong data-hf-id="hf-23f3">David Miller (62M)</strong></span><span data-hf-id="hf-vc72">MRN: <strong data-hf-id="hf-01jf">#MRN-91024</strong></span></div>
+              <div data-hf-id="hf-dedr" class="report-row"><span data-hf-id="hf-klqu">Finding: Bilateral Dot Hemorrhages</span><span data-hf-id="hf-niwk">Zone: Foveal Border</span></div>
+            </div>
+
+            <!-- Card 3: Dermoscopy -->
+            <div data-hf-id="hf-seq3" id="card-3" class="report-card clip" data-start="3.4" data-duration="12.6">
+              <div data-hf-id="hf-nvg1" class="report-header">
+                <span data-hf-id="hf-whcn" class="report-title">DIGITAL DERMOSCOPY LESION EVAL</span>
+                <span data-hf-id="hf-v8hi" class="report-badge badge-stat">STAT QUEUE</span>
+              </div>
+              <div data-hf-id="hf-elau" class="report-row"><span data-hf-id="hf-tjo9">Patient: <strong data-hf-id="hf-fehj">Marcus Thorne (44M)</strong></span><span data-hf-id="hf-vqi3">MRN: <strong data-hf-id="hf-zo7a">#MRN-78219</strong></span></div>
+              <div data-hf-id="hf-e6zt" class="report-row"><span data-hf-id="hf-1t0i">Site: Left Scapula (7.4 mm)</span><span data-hf-id="hf-8ubt">Risk: Asymmetry Detected</span></div>
+            </div>
+
+            <!-- Card 4: Top Chest CT with Missed Nodule -->
+            <div data-hf-id="hf-1zw1" id="card-4" class="report-card clip" data-start="5.0" data-duration="11.0">
+              <div data-hf-id="hf-o9r2" class="report-header">
+                <span data-hf-id="hf-iphu" class="report-title">HIGH-RES CT THORAX WITH CONTRAST</span>
+                <span data-hf-id="hf-a48i" class="report-badge badge-stat">CRITICAL REVIEW</span>
+              </div>
+              <div data-hf-id="hf-fdww" class="report-row"><span data-hf-id="hf-txza">Patient: <strong data-hf-id="hf-bsk5">Eleanor Vance (58F)</strong></span><span data-hf-id="hf-w4t4">MRN: <strong data-hf-id="hf-9kl2">#MRN-2026-0941</strong></span></div>
+              <div data-hf-id="hf-ezlv" class="report-row"><span data-hf-id="hf-qr4g">Clinical Indication: Chronic Cough, Dyspnea</span><span data-hf-id="hf-vhz1">Slices: 384</span></div>
+              <div data-hf-id="hf-ru7r" id="missed-alert" class="missed-alert-box clip" data-start="6.5" data-duration="9.5">
+                <span data-hf-id="hf-iaym" style="font-size: 16px;">⚠️</span>
+                <div data-hf-id="hf-paus" class="missed-text">OVERLOOKED FINDING: 6.2 mm Sub-Pleural Nodule Buried on Page 4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lower Third Headline -->
+        <div data-hf-id="hf-3bi8" class="bottom-banner">
+          <div data-hf-id="hf-0hrc" id="crisis-title" class="main-headline clip" data-start="0.6" data-duration="15.4">
+            THE MODERN CLINICAL BOTTLENECK
+          </div>
+          <div data-hf-id="hf-fita" id="crisis-sub" class="sub-headline clip" data-start="1.2" data-duration="14.8">
+            Thousands of complex diagnostic images daily. Mounting cognitive fatigue leads to missed findings.
+          </div>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+      <script>
+        (function() {
+          const tl = gsap.timeline({ paused: true });
+
+          // Animate HUD
+          tl.fromTo("#hud-backlog", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.5);
+          tl.fromTo("#hud-fatigue", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.8);
+
+          // Animate Headline
+          tl.fromTo("#crisis-title", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.6);
+          tl.fromTo("#crisis-sub", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 1.2);
+
+          // Animate Stacking of Cards
+          // Card 1: Base
+          tl.fromTo("#card-1", 
+            { y: 80, scale: 0.9, opacity: 0, rotateX: 20, rotateZ: -3 }, 
+            { y: 0, scale: 1, opacity: 1, rotateX: 12, rotateZ: -2, duration: 0.8, ease: "power3.out" }, 
+            0.2
+          );
+
+          // Card 2 drops on top
+          tl.fromTo("#card-2", 
+            { y: -120, scale: 1.05, opacity: 0, rotateX: 30, rotateZ: 5 }, 
+            { y: -18, scale: 1, opacity: 1, rotateX: 10, rotateZ: 2, duration: 0.6, ease: "back.out(1.2)" }, 
+            1.8
+          );
+
+          // Card 3 drops on top
+          tl.fromTo("#card-3", 
+            { y: -140, scale: 1.08, opacity: 0, rotateX: 30, rotateZ: -6 }, 
+            { y: -36, scale: 1, opacity: 1, rotateX: 8, rotateZ: -1.5, duration: 0.6, ease: "back.out(1.2)" }, 
+            3.4
+          );
+
+          // Card 4 drops on top
+          tl.fromTo("#card-4", 
+            { y: -160, scale: 1.1, opacity: 0, rotateX: 30, rotateZ: 4 }, 
+            { y: -54, scale: 1, opacity: 1, rotateX: 6, rotateZ: 1, duration: 0.6, ease: "back.out(1.3)" }, 
+            5.0
+          );
+
+          // Alert box highlight pulses
+          tl.fromTo("#missed-alert", 
+            { scale: 0.95, opacity: 0 }, 
+            { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" }, 
+            6.5
+          );
+
+          // Slow, subtle dramatic zoom into the missed finding box
+          tl.fromTo(".reports-container", 
+            { scale: 1 }, 
+            { scale: 1.15, duration: 8.0, ease: "sine.inOut" }, 
+            7.0
+          );
+
+          window.__timelines["scene1-crisis"] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

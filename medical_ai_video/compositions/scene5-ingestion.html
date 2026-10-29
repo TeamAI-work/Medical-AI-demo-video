@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scene 5: Diagnostic Study Ingestion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 p-0 overflow-hidden bg-[#EBEFF5]">
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          background-color: #EBEFF5;
+          background-image: 
+            radial-gradient(1200px 600px at 85% -10%, rgba(36, 107, 253, 0.08), transparent 60%),
+            radial-gradient(900px 500px at -10% 110%, rgba(29, 52, 99, 0.07), transparent 60%);
+          font-family: 'Inter', sans-serif;
+          color: #16233B;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .virtual-cursor {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          z-index: 150;
+          pointer-events: none;
+          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        .draggable-file {
+          position: absolute;
+          z-index: 120;
+          pointer-events: none;
+          filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
+        }
+      </style>
+
+      <div data-hf-id="hf-root5" id="root" data-composition-id="scene5-ingestion" data-width="1920" data-height="1080">
+        <!-- Virtual Cursor -->
+        <svg data-hf-id="hf-cursor5" id="cursor" class="virtual-cursor clip" data-start="0.5" data-duration="14.5" viewBox="0 0 24 24" fill="none">
+          <path data-hf-id="hf-cpath5" d="M5.5 3.5l12 11.5-5.5 1-2.5 5-2.5-1 2.5-5-4-1.5z" fill="#16233B" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- Floating Dragged File Element -->
+        <div id="dragged-file" class="draggable-file bg-white border-2 border-[#246BFD] rounded-xl px-4 py-2.5 flex items-center gap-3 shadow-2xl" style="opacity: 0;">
+          <div class="w-8 h-8 rounded-lg bg-[#E7EEFE] text-[#154CC1] flex items-center justify-center font-bold text-xs">
+            DCM
+          </div>
+          <div>
+            <div class="text-xs font-bold text-[#16233B]">CT_Thorax_Contrast_Vance_E.dcm</div>
+            <div class="text-[10px] text-[#637188]">24.8 MB • DICOM Volumetric Series (24 Slices)</div>
+          </div>
+        </div>
+
+        <!-- ── Top Header Bar (Exact MedicalAi/src/App.jsx with "report scan" active) ── -->
+        <header data-hf-id="hf-header5" class="relative shrink-0 w-full px-8 py-2.5 bg-white/90 backdrop-blur-md border-b border-[#DCE2EA] flex items-center justify-between shadow-[0_1px_2px_rgba(30,50,90,0.04)] z-30">
+          <div data-hf-id="hf-brand5" class="flex items-center gap-2.5 shrink-0">
+            <div class="w-8 h-8 rounded-xl border border-[#DCE2EA] bg-white shadow-xs flex items-center justify-center p-1">
+              <span class="font-black text-xs text-[#E13333] tracking-tighter leading-none select-none font-sans">MV</span>
+            </div>
+            <div class="min-w-0">
+              <h1 class="text-sm font-semibold text-[#16233B] tracking-tight leading-tight truncate">MedVision AI</h1>
+              <span class="text-[10px] text-[#637188] block truncate leading-tight">Life Care Medico Hospital</span>
+            </div>
+          </div>
+
+          <!-- Nav Pill with "report scan" active -->
+          <div data-hf-id="hf-navpill5" class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <nav class="flex items-center bg-[#EBEFF4] p-1 rounded-full border border-[#DCE2EA] shadow-inner gap-1">
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] hover:text-[#16233B] font-medium">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                <span>dashboard</span>
+              </button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] hover:text-[#16233B] font-medium">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>patients</span>
+              </button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full bg-[#1D3463] text-white shadow-xs font-semibold">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+                <span>report scan</span>
+              </button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] hover:text-[#16233B] font-medium">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>settings</span>
+              </button>
+            </nav>
+          </div>
+
+          <div class="shrink-0 w-8"></div>
+        </header>
+
+        <!-- ── Main Viewport with EXACT StudyUploadModal.jsx Dialog ── -->
+        <main class="flex-1 w-full flex items-center justify-center p-6">
+          <div id="upload-dialog" class="w-full max-w-2xl bg-white rounded-2xl shadow-[0_18px_50px_-20px_rgba(30,50,90,0.35),0_2px_6px_rgba(30,50,90,0.06)] border border-[#DCE2EA] overflow-hidden flex flex-col">
+            <!-- Modal Header (§11.7 Exact StudyUploadModal.jsx) -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-[#DCE2EA] bg-white">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-[#E7EEFE] text-[#154CC1] flex items-center justify-center border border-[#246BFD]/20 shadow-xs shrink-0">
+                  <svg class="w-4 h-4 text-[#154CC1]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-base font-semibold text-[#16233B] tracking-tight">upload diagnostic study</h3>
+                  <p class="text-xs text-[#637188]">patient demographic metadata & diagnostic scans</p>
+                </div>
+              </div>
+              <div class="w-7 h-7 rounded-md flex items-center justify-center text-[#637188]">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </div>
+            </div>
+
+            <!-- Modal Content Form (Exact StudyUploadModal.jsx) -->
+            <div class="p-6 flex flex-col gap-4">
+              <!-- Patient Info Row -->
+              <div class="grid grid-cols-3 gap-3">
+                <div class="col-span-2 flex flex-col gap-1">
+                  <label class="text-xs font-medium text-[#16233B] flex items-center gap-1">
+                    <span>patient name</span>
+                    <span class="text-[#E13333]">*</span>
+                  </label>
+                  <div class="h-9 px-3 text-xs bg-[#F8FAFC] border border-[#D0D8E1] rounded-lg flex items-center font-bold text-[#16233B]">
+                    Eleanor Vance
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-1">
+                  <label class="text-xs font-medium text-[#16233B] flex items-center gap-1">
+                    <span>patient id</span>
+                    <span class="text-[#E13333]">*</span>
+                  </label>
+                  <div class="h-9 px-3 text-xs bg-[#F8FAFC] border border-[#D0D8E1] rounded-lg flex items-center font-mono font-semibold text-[#16233B]">
+                    PT-1002
+                  </div>
+                </div>
+              </div>
+
+              <!-- Department Selection Pills -->
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-medium text-[#16233B]">clinical department</label>
+                <div class="flex items-center gap-2">
+                  <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-[#1D3463] text-white shadow-xs">
+                    Radiology (DICOM)
+                  </span>
+                  <span class="px-3 py-1.5 rounded-full text-xs font-medium text-[#637188] bg-[#F1F5F9] border border-[#DCE2EA]">
+                    Dermatology
+                  </span>
+                  <span class="px-3 py-1.5 rounded-full text-xs font-medium text-[#637188] bg-[#F1F5F9] border border-[#DCE2EA]">
+                    Ophthalmology
+                  </span>
+                  <span class="px-3 py-1.5 rounded-full text-xs font-medium text-[#637188] bg-[#F1F5F9] border border-[#DCE2EA]">
+                    Histopathology
+                  </span>
+                </div>
+              </div>
+
+              <!-- Modality & Region Row -->
+              <div class="grid grid-cols-2 gap-3">
+                <div class="flex flex-col gap-1">
+                  <label class="text-xs font-medium text-[#16233B]">modality</label>
+                  <div class="h-9 px-3 text-xs bg-white border border-[#D0D8E1] rounded-lg flex items-center font-medium text-[#16233B]">
+                    CT Scan (High-Resolution Thorax)
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <label class="text-xs font-medium text-[#16233B]">anatomical region</label>
+                  <div class="h-9 px-3 text-xs bg-white border border-[#D0D8E1] rounded-lg flex items-center font-medium text-[#16233B]">
+                    Chest / Pulmonary Parenchyma
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── Diagnostic Scan Dropzone (Exact StudyUploadModal.jsx) ── -->
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-medium text-[#16233B] flex items-center justify-between">
+                  <span>diagnostic scan file (.dcm, .zip, .png)</span>
+                  <span class="text-[10px] text-[#246BFD] font-mono">DICOM 3.0 Standard</span>
+                </label>
+                
+                <div id="dropzone" class="border-2 border-dashed border-[#DCE2EA] rounded-2xl p-6 text-center flex flex-col items-center justify-center gap-2 bg-[#F8FAFC] transition-all">
+                  <!-- Default state inside dropzone -->
+                  <div id="drop-prompt" class="flex flex-col items-center gap-1.5">
+                    <div class="w-12 h-12 rounded-xl bg-[#E7EEFE] text-[#246BFD] flex items-center justify-center border border-[#246BFD]/20 shadow-xs mb-1">
+                      <svg class="w-6 h-6 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    </div>
+                    <p class="text-xs font-semibold text-[#16233B]">Drop DICOM volumetric series or scan here</p>
+                    <p class="text-[11px] text-[#637188]">Accepts DICOM (.dcm), archive (.zip), or high-res radiological images</p>
+                  </div>
+
+                  <!-- Ingested File State (Revealed after drop) -->
+                  <div id="file-accepted" class="w-full p-3 bg-white border border-[#246BFD]/30 rounded-xl flex items-center justify-between shadow-xs" style="display: none; opacity: 0;">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded-lg bg-[#E3F7ED] text-[#147145] flex items-center justify-center font-bold text-xs border border-[#249E65]/30">
+                        <svg class="w-5 h-5 text-[#249E65]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div class="text-left">
+                        <div class="text-xs font-bold text-[#16233B]">CT_Thorax_Contrast_Vance_E.dcm</div>
+                        <div class="text-[10.5px] text-[#637188] font-mono">24.8 MB • Volumetric Array Ingested • 24 Slices Loaded</div>
+                      </div>
+                    </div>
+                    <span class="text-[10px] font-bold text-[#147145] bg-[#E3F7ED] px-2.5 py-1 rounded-full border border-[#249E65]/20">
+                      Ready for AI
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Analysis Status Progress Bar -->
+              <div id="analysis-progress-box" class="p-3 bg-[#E7EEFE]/50 border border-[#246BFD]/25 rounded-xl flex flex-col gap-2" style="display: none; opacity: 0;">
+                <div class="flex items-center justify-between text-xs">
+                  <span id="analysis-status-text" class="font-semibold text-[#154CC1] flex items-center gap-2">
+                    <span class="w-3.5 h-3.5 border-2 border-[#154CC1]/30 border-t-[#154CC1] rounded-full animate-spin"></span>
+                    <span>Running MedGemma AI multimodal analysis...</span>
+                  </span>
+                  <span id="analysis-pct" class="font-mono font-bold text-[#154CC1]">0%</span>
+                </div>
+                <div class="w-full h-2 bg-[#DCE2EA] rounded-full overflow-hidden">
+                  <div id="analysis-bar" class="h-full bg-[#246BFD] rounded-full transition-all" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal Action Footer -->
+            <div class="px-6 py-4 bg-[#F8FAFC] border-t border-[#DCE2EA] flex items-center justify-end gap-3">
+              <button type="button" class="px-4 py-2 text-xs font-medium text-[#637188] hover:bg-slate-200 rounded-full">Cancel</button>
+              <button
+                id="analyze-btn"
+                type="button"
+                class="px-6 py-2.5 text-xs font-semibold text-white bg-[#1D3463] hover:bg-[#15274D] rounded-full shadow-xs flex items-center gap-2 cursor-pointer transition-all"
+              >
+                <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+                <span>Process & Analyze Diagnostic Study</span>
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <script>
+        (function() {
+          const tl = gsap.timeline({ paused: true });
+          window.__timelines = window.__timelines || {};
+      window.__timelines["scene5-ingestion"] = tl;
+
+      // Initial state
+      tl.set("#cursor", { x: 500, y: 300, opacity: 0 });
+      tl.set("#dragged-file", { x: 400, y: 250, opacity: 0 });
+      tl.set("#file-accepted", { display: "none", opacity: 0 });
+      tl.set("#analysis-progress-box", { display: "none", opacity: 0 });
+
+      // 0.0s - 0.5s: Modal in place, cursor appears
+      tl.to("#cursor", { opacity: 1, duration: 0.3 }, 0.5);
+
+      // 0.8s - 2.0s: Cursor moves to inspect Radiology department pill
+      tl.to("#cursor", { x: 740, y: 360, duration: 1.0, ease: "power2.inOut" }, 0.8);
+
+      // 2.5s: Incoming scan file floats in
+      tl.to("#dragged-file", { opacity: 1, duration: 0.4 }, 2.5);
+      tl.to("#cursor", { x: 420, y: 270, duration: 0.5 }, 2.5);
+
+      // 3.2s - 5.2s: Cursor drags the file into the dashed dropzone!
+      tl.to(["#cursor", "#dragged-file"], {
+        x: "+=520",
+        y: "+=320",
+        duration: 2.0,
+        ease: "power2.inOut"
+      }, 3.2);
+
+      // 5.4s: Drop event! Dropzone activates blue highlight
+      tl.call(() => {
+        document.getElementById("dropzone").classList.add("border-[#246BFD]", "bg-[#E7EEFE]/30", "ring-4", "ring-[#246BFD]/15");
+      }, null, 5.4);
+
+      // 5.6s: File badge disappears and docks inside dropzone
+      tl.to("#dragged-file", { scale: 0.8, opacity: 0, duration: 0.2 }, 5.6);
+      tl.call(() => {
+        document.getElementById("drop-prompt").style.display = "none";
+        const fa = document.getElementById("file-accepted");
+        fa.style.display = "flex";
+      }, null, 5.7);
+      tl.to("#file-accepted", { opacity: 1, duration: 0.3 }, 5.8);
+
+      // 6.5s - 7.5s: Move cursor to "Process & Analyze Diagnostic Study" button
+      tl.to("#cursor", { x: 1210, y: 775, duration: 0.9, ease: "power2.inOut" }, 6.5);
+
+      // 7.8s: Button Click
+      tl.to("#analyze-btn", { scale: 0.96, duration: 0.1 }, 7.8);
+      tl.to("#analyze-btn", { scale: 1, duration: 0.15 }, 7.9);
+
+      // 8.0s: Progress box appears
+      tl.call(() => {
+        const pb = document.getElementById("analysis-progress-box");
+        pb.style.display = "flex";
+      }, null, 8.0);
+      tl.to("#analysis-progress-box", { opacity: 1, duration: 0.3 }, 8.1);
+
+      // 8.5s - 12.0s: Deterministic Multi-stage Analysis Progress
+      tl.call(() => {
+        document.getElementById("analysis-status-text").innerHTML = '<span class="w-3.5 h-3.5 border-2 border-[#154CC1]/30 border-t-[#154CC1] rounded-full animate-spin"></span><span>Extracting DICOM metadata & pixel volumetric arrays...</span>';
+        document.getElementById("analysis-pct").textContent = "38%";
+        document.getElementById("analysis-bar").style.width = "38%";
+      }, null, 8.5);
+
+      tl.call(() => {
+        document.getElementById("analysis-status-text").innerHTML = '<span class="w-3.5 h-3.5 border-2 border-[#154CC1]/30 border-t-[#154CC1] rounded-full animate-spin"></span><span>Running MedGemma 27B multimodal reasoning...</span>';
+        document.getElementById("analysis-pct").textContent = "76%";
+        document.getElementById("analysis-bar").style.width = "76%";
+      }, null, 10.0);
+
+      tl.call(() => {
+        document.getElementById("analysis-status-text").innerHTML = '<svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span class="text-emerald-700 font-bold">Analysis complete (1.2s latency) • Slices aligned</span>';
+        document.getElementById("analysis-pct").textContent = "100%";
+        document.getElementById("analysis-bar").style.width = "100%";
+        document.getElementById("analysis-bar").classList.remove("bg-[#246BFD]");
+        document.getElementById("analysis-bar").classList.add("bg-[#147145]");
+      }, null, 11.5);
+
+      // 12.5s - 14.0s: Smooth fade ready for Radiology Workspace
+      tl.to("#upload-dialog", { scale: 1.01, opacity: 0, duration: 0.8, ease: "power2.in" }, 13.0);
+
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

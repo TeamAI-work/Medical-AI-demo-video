@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scene 4: Clinical Dashboard & Patient Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 p-0 overflow-hidden bg-[#EBEFF5]">
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          background-color: #EBEFF5;
+          background-image: 
+            radial-gradient(1200px 600px at 85% -10%, rgba(36, 107, 253, 0.08), transparent 60%),
+            radial-gradient(900px 500px at -10% 110%, rgba(29, 52, 99, 0.07), transparent 60%);
+          font-family: 'Inter', sans-serif;
+          color: #16233B;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .virtual-cursor {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          z-index: 150;
+          pointer-events: none;
+          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        .caret {
+          display: inline-block;
+          width: 2px;
+          height: 14px;
+          background: #1D3463;
+          margin-left: 1px;
+          vertical-align: middle;
+          animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+          0%, 49% { opacity: 1; }
+          50%, 100% { opacity: 0; }
+        }
+      </style>
+
+      <div data-hf-id="hf-root4" id="root" data-composition-id="scene4-registration" data-width="1920" data-height="1080">
+        <!-- Virtual Cursor -->
+        <svg data-hf-id="hf-cursor4" id="cursor" class="virtual-cursor clip" data-start="0.5" data-duration="17.5" viewBox="0 0 24 24" fill="none">
+          <path data-hf-id="hf-cpath4" d="M5.5 3.5l12 11.5-5.5 1-2.5 5-2.5-1 2.5-5-4-1.5z" fill="#16233B" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- ── Top Header Bar (Exact MedicalAi/src/App.jsx) ── -->
+        <header data-hf-id="hf-header4" class="relative shrink-0 w-full px-8 py-2.5 bg-white/90 backdrop-blur-md border-b border-[#DCE2EA] flex items-center justify-between shadow-[0_1px_2px_rgba(30,50,90,0.04)] z-30">
+          <!-- Left: Brand Tile -->
+          <div data-hf-id="hf-brand4" class="flex items-center gap-2.5 shrink-0">
+            <div class="w-8 h-8 rounded-xl border border-[#DCE2EA] bg-white shadow-xs flex items-center justify-center p-1">
+              <span class="font-black text-xs text-[#E13333] tracking-tighter leading-none select-none font-sans">MV</span>
+            </div>
+            <div class="min-w-0">
+              <h1 class="text-sm font-semibold text-[#16233B] tracking-tight leading-tight truncate">MedVision AI</h1>
+              <span class="text-[10px] text-[#637188] block truncate leading-tight">Life Care Medico Hospital</span>
+            </div>
+          </div>
+
+          <!-- Centre: Primary Navigation Pill (Exact App.jsx) -->
+          <div data-hf-id="hf-navpill4" class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <nav class="flex items-center bg-[#EBEFF4] p-1 rounded-full border border-[#DCE2EA] shadow-inner gap-1">
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full bg-[#1D3463] text-white shadow-xs font-semibold">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                <span>dashboard</span>
+              </button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] hover:text-[#16233B] font-medium">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>patients</span>
+              </button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] hover:text-[#16233B] font-medium">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+                <span>report scan</span>
+              </button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] hover:text-[#16233B] font-medium">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>settings</span>
+              </button>
+            </nav>
+          </div>
+
+          <div class="shrink-0 w-8"></div>
+        </header>
+
+        <!-- ── Main Dashboard Viewport (Exact DashboardPage.jsx) ── -->
+        <main class="flex-1 overflow-y-auto px-8 py-5 w-full flex flex-col gap-4">
+          <!-- Top Header Action Row -->
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-semibold tracking-wider text-[#637188] uppercase">
+                Wednesday, October 28, 2026
+              </span>
+              <h1 class="text-2xl font-semibold text-[#16233B] tracking-tight">
+                Clinical Dashboard
+              </h1>
+            </div>
+
+            <button
+              id="open-register-btn"
+              type="button"
+              class="px-4 py-2 text-xs font-semibold text-[#154CC1] bg-[#E7EEFE] hover:bg-[#D7E4FE] border border-[#246BFD]/25 rounded-full shadow-xs flex items-center gap-1.5 cursor-pointer transition-all"
+            >
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+              <span>+ Register & queue patient</span>
+            </button>
+          </div>
+
+          <!-- 4 Summary Stat Tiles (Exact DashboardPage.jsx lines 735-783) -->
+          <div class="grid grid-cols-4 gap-3.5">
+            <div class="p-4 bg-white rounded-2xl border border-[#DCE2EA] shadow-[0_1px_2px_rgba(30,50,90,0.04)] flex items-center justify-between">
+              <div>
+                <p class="text-[11px] text-[#637188] font-medium">today's scheduled</p>
+                <h3 class="text-2xl font-semibold text-[#16233B] mt-0.5">14</h3>
+                <span class="text-[10px] text-[#249E65] font-medium mt-0.5 block">8 completed</span>
+              </div>
+              <div class="w-10 h-10 rounded-xl bg-[#E7EEFE] text-[#154CC1] flex items-center justify-center border border-[#246BFD]/20 shadow-xs">
+                <svg class="w-5 h-5 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+            </div>
+
+            <div class="p-4 bg-white rounded-2xl border border-[#DCE2EA] shadow-[0_1px_2px_rgba(30,50,90,0.04)] flex items-center justify-between">
+              <div>
+                <p class="text-[11px] text-[#637188] font-medium">awaiting diagnosis</p>
+                <h3 class="text-2xl font-semibold text-[#16233B] mt-0.5">6</h3>
+                <span class="text-[10px] text-[#974D0C] font-medium mt-0.5 block">2 urgent finding</span>
+              </div>
+              <div class="w-10 h-10 rounded-xl bg-[#FFF4DB] text-[#974D0C] flex items-center justify-center border border-[#EB8D0A]/20 shadow-xs">
+                <svg class="w-5 h-5 text-[#EB8D0A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+            </div>
+
+            <div class="p-4 bg-white rounded-2xl border border-[#DCE2EA] shadow-[0_1px_2px_rgba(30,50,90,0.04)] flex items-center justify-between">
+              <div>
+                <p class="text-[11px] text-[#637188] font-medium">urgent alerts flagged</p>
+                <h3 class="text-2xl font-semibold text-[#AD1F1F] mt-0.5">2</h3>
+                <span class="text-[10px] text-[#637188] font-medium mt-0.5 block">15-min priority queue</span>
+              </div>
+              <div class="w-10 h-10 rounded-xl bg-[#FDEAEA] text-[#AD1F1F] flex items-center justify-center border border-[#E13333]/20 shadow-xs">
+                <svg class="w-5 h-5 text-[#E13333]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+            </div>
+
+            <div class="p-4 bg-white rounded-2xl border border-[#DCE2EA] shadow-[0_1px_2px_rgba(30,50,90,0.04)] flex items-center justify-between">
+              <div>
+                <p class="text-[11px] text-[#637188] font-medium">prescriptions ready</p>
+                <h3 class="text-2xl font-semibold text-[#154CC1] mt-0.5">5</h3>
+                <span class="text-[10px] text-[#154CC1] font-medium mt-0.5 block">Receptionist print desk</span>
+              </div>
+              <div class="w-10 h-10 rounded-xl bg-[#E7EEFE] text-[#154CC1] flex items-center justify-center border border-[#246BFD]/20 shadow-xs">
+                <svg class="w-5 h-5 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor Greeting & Workload Banner (Exact DashboardPage.jsx lines 786-810) -->
+          <div class="p-4 bg-white rounded-2xl border border-[#DCE2EA] shadow-[0_1px_2px_rgba(30,50,90,0.04)] flex items-center justify-between">
+            <div class="flex items-center gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-[#E7EEFE] text-[#154CC1] flex items-center justify-center font-bold text-sm shrink-0 border border-[#246BFD]/25 shadow-xs">
+                <svg class="w-5 h-5 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+              </div>
+              <div>
+                <h2 class="text-sm font-bold text-[#16233B]">Good Morning, Dr. Sarah Mitchell, MD</h2>
+                <p class="text-xs text-[#637188] mt-0.5">Attending Physician • General Diagnostic & Emergency Triage</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-semibold text-[#154CC1] bg-[#E7EEFE] px-3 py-1 rounded-full border border-[#246BFD]/20">
+                8 of 14 cases diagnosed (57%)
+              </span>
+            </div>
+          </div>
+
+          <!-- Today's Active Diagnostic Queue Card (Exact DashboardPage.jsx) -->
+          <div class="bg-white rounded-2xl border border-[#DCE2EA] shadow-[0_1px_2px_rgba(30,50,90,0.04)] p-5 flex flex-col gap-3">
+            <div class="flex items-center justify-between pb-3 border-b border-[#DCE2EA]">
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-bold text-[#16233B]">Today's Active Diagnostic Queue</h3>
+                <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-[#E7EEFE] text-[#154CC1] border border-[#246BFD]/20">14 patients</span>
+              </div>
+              <div class="flex items-center gap-1 bg-[#F1F5F9] p-0.5 rounded-lg border border-[#DCE2EA] text-xs">
+                <span class="px-3 py-1 rounded-md font-semibold bg-white text-[#16233B] shadow-xs">all (14)</span>
+                <span class="px-3 py-1 rounded-md text-[#637188]">urgent (2)</span>
+                <span class="px-3 py-1 rounded-md text-[#637188]">routine (12)</span>
+              </div>
+            </div>
+
+            <!-- Queue Slot Rows -->
+            <div class="flex flex-col gap-2">
+              <!-- Row 1: Harish Chandra -->
+              <div class="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <span class="text-xs font-mono font-bold text-[#637188] bg-white px-2 py-1 rounded border border-[#DCE2EA]">09:00 AM – 09:15 AM</span>
+                  <div class="w-8 h-8 rounded-full bg-[#E0F2FE] text-[#0369A1] font-semibold text-xs flex items-center justify-center">HC</div>
+                  <div>
+                    <h4 class="text-xs font-bold text-[#16233B]">Harish Chandra (62/M)</h4>
+                    <p class="text-[11px] text-[#637188]">Chest CT • Persistent Cough & Fever</p>
+                  </div>
+                </div>
+                <span class="text-[11px] font-semibold text-[#147145] bg-[#E3F7ED] px-2.5 py-1 rounded-full border border-[#249E65]/20">Completed</span>
+              </div>
+
+              <!-- Row 2: Priyanka Nair -->
+              <div class="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <span class="text-xs font-mono font-bold text-[#637188] bg-white px-2 py-1 rounded border border-[#DCE2EA]">09:15 AM – 09:30 AM</span>
+                  <div class="w-8 h-8 rounded-full bg-[#FEF3C7] text-[#92400E] font-semibold text-xs flex items-center justify-center">PN</div>
+                  <div>
+                    <h4 class="text-xs font-bold text-[#16233B]">Priyanka Nair (45/F)</h4>
+                    <p class="text-[11px] text-[#637188]">Dermoscopy • Pigmented Cutaneous Lesion</p>
+                  </div>
+                </div>
+                <span class="text-[11px] font-semibold text-[#147145] bg-[#E3F7ED] px-2.5 py-1 rounded-full border border-[#249E65]/20">Completed</span>
+              </div>
+
+              <!-- Row 3: ELEANOR VANCE (Newly queued via modal!) -->
+              <div id="row-eleanor" class="p-3 bg-[#FFF5F5] border-2 border-[#E13333]/30 rounded-xl flex items-center justify-between shadow-xs transition-all" style="display: none; opacity: 0;">
+                <div class="flex items-center gap-4">
+                  <span class="text-xs font-mono font-bold text-[#AD1F1F] bg-white px-2 py-1 rounded border border-[#E13333]/30">09:30 AM – 09:45 AM</span>
+                  <div class="w-8 h-8 rounded-full bg-[#FEE2E2] text-[#991B1B] font-bold text-xs flex items-center justify-center">EV</div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h4 class="text-xs font-bold text-[#16233B]">Eleanor Vance (58/F)</h4>
+                      <span class="px-1.5 py-0.2 bg-[#FDEAEA] text-[#AD1F1F] text-[10px] font-bold rounded border border-[#E13333]/30">STAT URGENT</span>
+                    </div>
+                    <p class="text-[11px] text-[#637188]">CT Thorax with Contrast • Acute pleuritic chest pain & hemoptysis</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-semibold text-[#974D0C] bg-[#FFF4DB] px-2.5 py-1 rounded-full border border-[#EB8D0A]/30">Awaiting Diagnosis</span>
+                  <button class="px-3 py-1 bg-[#1D3463] text-white text-xs font-semibold rounded-full shadow-xs">Diagnose</button>
+                </div>
+              </div>
+
+              <!-- Row 4: Marcus Thorne -->
+              <div class="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <span class="text-xs font-mono font-bold text-[#637188] bg-white px-2 py-1 rounded border border-[#DCE2EA]">09:45 AM – 10:00 AM</span>
+                  <div class="w-8 h-8 rounded-full bg-[#E0E7FF] text-[#3730A3] font-semibold text-xs flex items-center justify-center">MT</div>
+                  <div>
+                    <h4 class="text-xs font-bold text-[#16233B]">Marcus Thorne (44/M)</h4>
+                    <p class="text-[11px] text-[#637188]">Fundus Photography • Diabetic Retinopathy Check</p>
+                  </div>
+                </div>
+                <span class="text-[11px] font-semibold text-[#637188] bg-white px-2.5 py-1 rounded-full border border-[#DCE2EA]">Scheduled</span>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ── EXACT Cloned PatientIntakeModal Dialog (DashboardPage.jsx lines 1350-1550) ── -->
+        <div id="reg-backdrop" class="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/45 backdrop-blur-[3px]" style="display: none; opacity: 0;">
+          <div id="reg-card" class="w-full max-w-xl bg-white border border-[#DCE2EA] rounded-2xl shadow-2xl overflow-hidden flex flex-col transform scale-95 transition-all">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-[#DCE2EA] bg-white">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-[#E7EEFE] text-[#154CC1] flex items-center justify-center border border-[#246BFD]/20 shadow-xs">
+                  <svg class="w-4 h-4 text-[#154CC1]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-[#16233B]">Register & Queue New Patient</h3>
+                  <p class="text-xs text-[#637188]">Assign patient to clinical triage queue and 15-minute diagnostic slot.</p>
+                </div>
+              </div>
+              <div class="w-7 h-7 rounded-md flex items-center justify-center text-[#637188]">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </div>
+            </div>
+
+            <!-- Modal Form Body -->
+            <div class="p-6 flex flex-col gap-3.5 bg-white">
+              <!-- Attending Doctor Selection -->
+              <div class="flex flex-col gap-1">
+                <label class="text-[11px] font-semibold text-[#16233B]">Attending Physician</label>
+                <div class="h-9 px-3 text-xs text-[#16233B] bg-[#F8FAFC] border border-[#DCE2EA] rounded-lg flex items-center font-medium">
+                  Dr. Sarah Mitchell, MD (Diagnostic Radiology & Emergency Triage)
+                </div>
+              </div>
+
+              <!-- Patient Full Name -->
+              <div class="flex flex-col gap-1">
+                <label class="text-[11px] font-semibold text-[#16233B] flex items-center gap-1">
+                  <span>Full Legal Name</span>
+                  <span class="text-[#E13333]">*</span>
+                </label>
+                <div id="name-box" class="h-9 px-3 text-xs bg-white border border-[#D0D8E1] rounded-lg flex items-center transition-all">
+                  <span id="name-val" class="font-semibold text-[#16233B]"></span>
+                  <span id="name-caret" class="caret" style="display: none;"></span>
+                  <span id="name-ph" class="text-[#8C98A9]">e.g. Eleanor Vance</span>
+                </div>
+              </div>
+
+              <!-- Age & Gender -->
+              <div class="grid grid-cols-2 gap-3">
+                <div class="flex flex-col gap-1">
+                  <label class="text-[11px] font-semibold text-[#16233B]">Age</label>
+                  <div class="h-9 px-3 text-xs font-mono font-semibold text-[#16233B] bg-white border border-[#D0D8E1] rounded-lg flex items-center">58</div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <label class="text-[11px] font-semibold text-[#16233B]">Gender</label>
+                  <div class="h-9 px-3 text-xs text-[#16233B] bg-white border border-[#D0D8E1] rounded-lg flex items-center">Female</div>
+                </div>
+              </div>
+
+              <!-- Department -->
+              <div class="flex flex-col gap-1">
+                <label class="text-[11px] font-semibold text-[#16233B]">Department *</label>
+                <div class="h-9 px-3 text-xs text-[#16233B] bg-white border border-[#D0D8E1] rounded-lg flex items-center font-medium">
+                  Radiology (Chest / Thorax CT)
+                </div>
+              </div>
+
+              <!-- Reason / Clinical Indication -->
+              <div class="flex flex-col gap-1">
+                <label class="text-[11px] font-semibold text-[#16233B]">Clinical Indication / Reason *</label>
+                <div id="reason-box" class="h-9 px-3 text-xs bg-white border border-[#D0D8E1] rounded-lg flex items-center transition-all">
+                  <span id="reason-val" class="font-medium text-[#16233B]"></span>
+                  <span id="reason-caret" class="caret" style="display: none;"></span>
+                  <span id="reason-ph" class="text-[#8C98A9]">e.g. Acute pleuritic chest pain</span>
+                </div>
+              </div>
+
+              <!-- Priority -->
+              <div class="flex flex-col gap-1">
+                <label class="text-[11px] font-semibold text-[#16233B]">Priority Level</label>
+                <div id="priority-box" class="h-9 px-3 text-xs font-bold text-[#AD1F1F] bg-[#FDEAEA] border border-[#E13333]/30 rounded-lg flex items-center justify-between">
+                  <span>Urgent STAT (15-min emergency queue)</span>
+                  <span class="text-[10px] bg-white px-2 py-0.5 rounded border border-[#E13333]/30">High Priority</span>
+                </div>
+              </div>
+
+              <!-- 15-Minute Queue Time Slot Allocation Widget (Exact DashboardPage.jsx lines 1461-1525) -->
+              <div class="p-3 bg-[#E7EEFE]/60 border border-[#246BFD]/25 rounded-xl flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <label class="text-[11px] font-semibold text-[#154CC1] flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Allocated 15-minute diagnostic time slot</span>
+                  </label>
+                  <span class="text-[10px] font-bold text-[#154CC1] bg-white px-2 py-0.5 rounded-full border border-[#246BFD]/20">
+                    15 min / patient
+                  </span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <div class="h-9 px-3 text-xs font-mono font-bold text-[#16233B] bg-white border border-[#246BFD] rounded-lg flex items-center">
+                    09:30 AM
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <button type="button" class="px-2.5 py-1.5 bg-white border border-[#DCE2EA] rounded-lg text-[10.5px] font-medium text-[#16233B]">-15m</button>
+                    <button type="button" class="px-2.5 py-1.5 bg-white border border-[#DCE2EA] rounded-lg text-[10.5px] font-medium text-[#16233B]">+15m</button>
+                    <button type="button" class="px-2.5 py-1.5 bg-[#1D3463] text-white rounded-lg text-[10.5px] font-semibold">Next available</button>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between text-[11px] text-[#637188]">
+                  <div>Scheduled window: <strong class="text-[#16233B] font-mono">09:30 AM – 09:45 AM</strong></div>
+                  <div class="text-[10px] text-emerald-700 font-semibold">✓ Slot Unoccupied</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal Action Footer -->
+            <div class="px-6 py-4 bg-[#F8FAFC] border-t border-[#DCE2EA] flex items-center justify-end gap-2.5">
+              <button type="button" class="px-4 py-2 text-xs font-medium text-[#637188] hover:bg-slate-200 rounded-full">Cancel</button>
+              <button
+                id="submit-intake-btn"
+                type="button"
+                class="px-5 py-2 text-xs font-semibold text-white bg-[#1D3463] hover:bg-[#15274D] rounded-full shadow-xs flex items-center gap-2 cursor-pointer transition-all"
+              >
+                <span>Register & Add to 15-Min Queue</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function() {
+          const tl = gsap.timeline({ paused: true });
+          window.__timelines = window.__timelines || {};
+      window.__timelines["scene4-registration"] = tl;
+
+      function buildTypingSteps(text) {
+        const steps = [];
+        for (let i = 1; i <= text.length; i++) {
+          steps.push(text.slice(0, i));
+        }
+        return steps;
+      }
+
+      // Initial state
+      tl.set("#cursor", { x: 1200, y: 350, opacity: 0 });
+      tl.set("#reg-backdrop", { display: "none", opacity: 0 });
+      tl.set("#reg-card", { scale: 0.95, y: 10 });
+      tl.set("#row-eleanor", { display: "none", opacity: 0 });
+
+      // 0.0s - 0.5s: Dashboard ready, cursor enters
+      tl.to("#cursor", { opacity: 1, duration: 0.3 }, 0.5);
+
+      // 0.8s - 1.8s: Cursor moves to "+ Register & queue patient" button
+      tl.to("#cursor", { x: 1780, y: 95, duration: 1.0, ease: "power2.inOut" }, 0.8);
+
+      // 2.0s: Button click effect
+      tl.to("#open-register-btn", { scale: 0.96, duration: 0.1 }, 2.0);
+      tl.to("#open-register-btn", { scale: 1, duration: 0.15 }, 2.1);
+
+      // 2.2s: Open Registration Modal
+      tl.call(() => {
+        const bd = document.getElementById("reg-backdrop");
+        bd.style.display = "flex";
+      }, null, 2.2);
+      tl.to("#reg-backdrop", { opacity: 1, duration: 0.3 }, 2.2);
+      tl.to("#reg-card", { scale: 1, y: 0, duration: 0.35, ease: "back.out(1.4)" }, 2.2);
+
+      // 2.8s - 3.4s: Cursor moves to Full Name field
+      tl.to("#cursor", { x: 960, y: 335, duration: 0.6, ease: "power2.inOut" }, 2.8);
+
+      // Focus name input
+      tl.call(() => {
+        document.getElementById("name-ph").style.display = "none";
+        document.getElementById("name-caret").style.display = "inline-block";
+        document.getElementById("name-box").classList.add("border-[#246BFD]", "ring-2", "ring-[#246BFD]/15");
+      }, null, 3.5);
+
+      // 3.6s - 5.8s: Real typing of "Eleanor Vance"
+      const nameText = "Eleanor Vance";
+      const nameSteps = buildTypingSteps(nameText);
+      nameSteps.forEach((str, i) => {
+        const t = 3.6 + (i * 0.16);
+        tl.call(() => {
+          document.getElementById("name-val").textContent = str;
+        }, null, t);
+      });
+
+      // 6.2s - 6.8s: Cursor moves to Reason field
+      tl.to("#cursor", { x: 960, y: 495, duration: 0.6, ease: "power2.inOut" }, 6.2);
+
+      // Focus reason input
+      tl.call(() => {
+        document.getElementById("name-caret").style.display = "none";
+        document.getElementById("name-box").classList.remove("border-[#246BFD]", "ring-2", "ring-[#246BFD]/15");
+        document.getElementById("reason-ph").style.display = "none";
+        document.getElementById("reason-caret").style.display = "inline-block";
+        document.getElementById("reason-box").classList.add("border-[#246BFD]", "ring-2", "ring-[#246BFD]/15");
+      }, null, 6.8);
+
+      // 7.0s - 10.0s: Real typing of clinical reason
+      const reasonText = "Acute pleuritic chest pain & hemoptysis";
+      const reasonSteps = buildTypingSteps(reasonText);
+      reasonSteps.forEach((str, i) => {
+        const t = 7.0 + (i * 0.08);
+        tl.call(() => {
+          document.getElementById("reason-val").textContent = str;
+        }, null, t);
+      });
+
+      // 10.4s - 11.2s: Cursor moves to Priority STAT box
+      tl.to("#cursor", { x: 960, y: 550, duration: 0.7, ease: "power2.inOut" }, 10.4);
+
+      // Hide reason caret
+      tl.call(() => {
+        document.getElementById("reason-caret").style.display = "none";
+        document.getElementById("reason-box").classList.remove("border-[#246BFD]", "ring-2", "ring-[#246BFD]/15");
+      }, null, 11.0);
+
+      // 11.8s - 12.6s: Move cursor to "Register & Add to 15-Min Queue" submit button
+      tl.to("#cursor", { x: 1140, y: 760, duration: 0.7, ease: "power2.inOut" }, 11.8);
+
+      // 12.8s: Submit Button Press Click
+      tl.to("#submit-intake-btn", { scale: 0.96, duration: 0.1 }, 12.8);
+      tl.to("#submit-intake-btn", { scale: 1, duration: 0.15 }, 12.9);
+
+      // 13.0s: Modal scales out and dismisses
+      tl.to("#reg-card", { scale: 0.95, opacity: 0, duration: 0.25 }, 13.0);
+      tl.to("#reg-backdrop", { opacity: 0, duration: 0.3 }, 13.1);
+      tl.call(() => {
+        document.getElementById("reg-backdrop").style.display = "none";
+      }, null, 13.4);
+
+      // 13.6s: Eleanor Vance row appears in queue!
+      tl.call(() => {
+        const row = document.getElementById("row-eleanor");
+        row.style.display = "flex";
+      }, null, 13.6);
+      tl.to("#row-eleanor", { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 13.7);
+
+      // 14.5s - 15.5s: Cursor moves to Eleanor Vance's row
+      tl.to("#cursor", { x: 1150, y: 460, duration: 0.8, ease: "power2.inOut" }, 14.5);
+
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

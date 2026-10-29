@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scene 9: Enterprise Outro</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          background: radial-gradient(circle at 50% 40%, #0F1E3D 0%, #070D18 100%);
+          font-family: 'Inter', sans-serif;
+          color: #FFFFFF;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 60px;
+        }
+
+        /* Ambient Glows */
+        .glow-accent {
+          position: absolute;
+          width: 800px;
+          height: 800px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(36, 107, 253, 0.2) 0%, transparent 70%);
+          filter: blur(90px);
+          pointer-events: none;
+        }
+
+        /* Top Outro Title */
+        .outro-title {
+          font-size: 20px;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #61A8FF;
+          margin-bottom: 36px;
+        }
+
+        /* 3 Enterprise Metric Cards */
+        .metrics-row {
+          display: flex;
+          gap: 28px;
+          margin-bottom: 54px;
+          z-index: 10;
+        }
+
+        .metric-card {
+          width: 360px;
+          padding: 32px 28px;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 20px;
+          backdrop-filter: blur(12px);
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          text-align: left;
+        }
+
+        .metric-big-num {
+          font-size: 54px;
+          font-weight: 900;
+          letter-spacing: -0.03em;
+          font-family: 'JetBrains Mono', monospace;
+          background: linear-gradient(180deg, #FFFFFF 0%, #93C5FD 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          line-height: 1;
+        }
+
+        .metric-label {
+          font-size: 15px;
+          font-weight: 700;
+          color: #E2E8F0;
+        }
+
+        .metric-sub {
+          font-size: 12px;
+          color: #8C9BB5;
+          line-height: 1.4;
+        }
+
+        /* Final Closing Brand Lockup */
+        .final-lockup {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          z-index: 10;
+        }
+
+        .final-emblem {
+          width: 72px;
+          height: 72px;
+          background: linear-gradient(135deg, #1D3463 0%, #246BFD 100%);
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 35px rgba(36, 107, 253, 0.5);
+          margin-bottom: 6px;
+        }
+
+        .final-brand {
+          font-size: 46px;
+          font-weight: 900;
+          letter-spacing: -0.02em;
+          color: #FFFFFF;
+        }
+
+        .final-tagline {
+          font-size: 18px;
+          font-weight: 500;
+          color: #94A3B8;
+        }
+
+        .cta-pill {
+          margin-top: 18px;
+          padding: 10px 24px;
+          background: rgba(36, 107, 253, 0.15);
+          border: 1px solid rgba(36, 107, 253, 0.4);
+          border-radius: 9999px;
+          font-size: 13px;
+          font-weight: 700;
+          color: #60A5FA;
+          letter-spacing: 0.04em;
+        }
+
+        .compliance-row {
+          display: flex;
+          gap: 24px;
+          font-size: 11px;
+          font-weight: 700;
+          color: #94A3B8;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          margin-top: 24px;
+        }
+      </style>
+
+      <div data-hf-id="hf-f32e" id="root" data-composition-id="scene9-outro" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-3lrq" class="glow-accent"></div>
+
+        <div data-hf-id="hf-numm" id="outro-title" class="outro-title">Institutional Clinical AI Impact</div>
+
+        <!-- 3 Key Metric Cards -->
+        <div data-hf-id="hf-5pzo" class="metrics-row">
+          <div data-hf-id="hf-rlw7" id="m-card-1" class="metric-card">
+            <div data-hf-id="hf-q6w9" class="metric-big-num">-78%</div>
+            <div data-hf-id="hf-ej4s" class="metric-label">Diagnostic Backlog Reduction</div>
+            <div data-hf-id="hf-bwh5" class="metric-sub">Multi-department automated triage clears unread CT, Derm, and Fundus queues.</div>
+          </div>
+
+          <div data-hf-id="hf-gqek" id="m-card-2" class="metric-card">
+            <div data-hf-id="hf-qqpc" class="metric-big-num" style="background: linear-gradient(180deg, #FFFFFF 0%, #34D399 100%); -webkit-background-clip: text;">-92%</div>
+            <div data-hf-id="hf-fq41" class="metric-label">Diagnostic Oversights Prevented</div>
+            <div data-hf-id="hf-wj2x" class="metric-sub">Real-time multimodal verification flags missed nodules, lesions, and microvascular risks.</div>
+          </div>
+
+          <div data-hf-id="hf-hi2d" id="m-card-3" class="metric-card">
+            <div data-hf-id="hf-6g4m" class="metric-big-num" style="background: linear-gradient(180deg, #FFFFFF 0%, #FBBF24 100%); -webkit-background-clip: text;">3.2 min</div>
+            <div data-hf-id="hf-3kmo" class="metric-label">Intake to Prescription Handoff</div>
+            <div data-hf-id="hf-ntuv" class="metric-sub">Accelerated from standard 18-minute manual documentation cycles down to 3.2 minutes.</div>
+          </div>
+        </div>
+
+        <!-- Final Lockup -->
+        <div data-hf-id="hf-b55e" id="final-lockup" class="final-lockup">
+          <div data-hf-id="hf-fo4b" class="final-emblem">
+            <svg data-hf-id="hf-g44t" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path data-hf-id="hf-06ci" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path data-hf-id="hf-yfzu" d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div data-hf-id="hf-75qu" class="final-brand">MedVision AI</div>
+          <div data-hf-id="hf-ip9d" class="final-tagline">“Empowering Clinicians. Accelerating Diagnoses. Protecting Patients.”</div>
+          <div data-hf-id="hf-isjw" class="cta-pill">Institutional Clinical AI Deployment: contact@medvision-ai.org</div>
+          <div data-hf-id="hf-x0ei" class="compliance-row">
+            <span data-hf-id="hf-2t5s">✓ HIPAA Compliant</span>
+            <span data-hf-id="hf-dgys">✓ SOC-2 Type II</span>
+            <span data-hf-id="hf-h71q">✓ HL7 / FHIR Native</span>
+            <span data-hf-id="hf-ae39">✓ DICOM Ready</span>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+      <script>
+        (function() {
+          const tl = gsap.timeline({ paused: true });
+
+          // 1. Metric cards entrance
+          tl.fromTo("#outro-title", 
+            { y: -20, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 
+            0.2
+          );
+
+          tl.fromTo(".metric-card", 
+            { y: 40, opacity: 0, scale: 0.95 }, 
+            { y: 0, opacity: 1, scale: 1, duration: 0.7, stagger: 0.2, ease: "back.out(1.2)" }, 
+            0.6
+          );
+
+          // 2. Final brand lockup fades up
+          tl.fromTo("#final-lockup", 
+            { y: 30, opacity: 0, scale: 0.92 }, 
+            { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: "power3.out" }, 
+            2.2
+          );
+
+          // 3. Subtle slow cinematic zoom out to end the film
+          tl.fromTo("#root", 
+            { scale: 1 }, 
+            { scale: 1.05, duration: 12.0, ease: "sine.inOut" }, 
+            3.0
+          );
+
+          window.__timelines["scene9-outro"] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

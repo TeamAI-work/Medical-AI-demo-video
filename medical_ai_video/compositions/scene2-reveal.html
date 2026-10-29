@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scene 2: Product Reveal</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          background: radial-gradient(circle at 50% 50%, #0F1E3D 0%, #070D18 100%);
+          font-family: 'Inter', sans-serif;
+          color: #FFFFFF;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        /* Ambient Multi-Spectral Convergence Glows */
+        .glow-blue {
+          position: absolute;
+          width: 700px;
+          height: 700px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(36, 107, 253, 0.25) 0%, transparent 70%);
+          filter: blur(80px);
+        }
+
+        .glow-emerald {
+          position: absolute;
+          width: 500px;
+          height: 500px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
+          filter: blur(70px);
+        }
+
+        /* Central Brand Container */
+        .brand-container {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          z-index: 10;
+        }
+
+        /* Geometric Multi-Modality Shield */
+        .emblem-wrapper {
+          position: relative;
+          width: 140px;
+          height: 140px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 24px;
+        }
+
+        .emblem-ring {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          border: 2px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 0 40px rgba(36, 107, 253, 0.4);
+          transform: rotate(45deg);
+        }
+
+        .emblem-core {
+          width: 88px;
+          height: 88px;
+          background: linear-gradient(135deg, #1D3463 0%, #246BFD 100%);
+          border-radius: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 8px 30px rgba(36, 107, 253, 0.6);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .laser-sweep {
+          position: absolute;
+          top: -20%;
+          left: -40%;
+          width: 200%;
+          height: 8px;
+          background: linear-gradient(90deg, transparent, #FFFFFF, transparent);
+          box-shadow: 0 0 15px #FFFFFF;
+          transform: rotate(-35deg);
+        }
+
+        /* Typography */
+        .brand-name {
+          font-size: 68px;
+          font-weight: 900;
+          letter-spacing: -0.03em;
+          background: linear-gradient(180deg, #FFFFFF 0%, #E2EDFD 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-bottom: 6px;
+          line-height: 1.1;
+        }
+
+        .brand-role {
+          font-size: 22px;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #61A8FF;
+          margin-bottom: 14px;
+        }
+
+        .brand-tagline {
+          font-size: 20px;
+          font-weight: 500;
+          color: #94A3B8;
+          max-width: 700px;
+          line-height: 1.5;
+        }
+
+        /* Department Modality Badges */
+        .badges-row {
+          display: flex;
+          gap: 14px;
+          margin-top: 36px;
+        }
+
+        .modality-badge {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 18px;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 9999px;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.02em;
+          color: #E2E8F0;
+          backdrop-filter: blur(10px);
+        }
+
+        .badge-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+        }
+      </style>
+
+      <div data-hf-id="hf-ml61" id="root" data-composition-id="scene2-reveal" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-ktzk" class="glow-blue"></div>
+        <div data-hf-id="hf-oamc" class="glow-emerald"></div>
+
+        <div data-hf-id="hf-p6np" class="brand-container">
+          <!-- Animated Shield Emblem -->
+          <div data-hf-id="hf-wq5y" id="emblem" class="emblem-wrapper clip" data-start="0.2" data-duration="11.8">
+            <div data-hf-id="hf-lr88" id="emblem-ring" class="emblem-ring"></div>
+            <div data-hf-id="hf-aiau" class="emblem-core">
+              <svg data-hf-id="hf-r9m1" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path data-hf-id="hf-06ci" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path data-hf-id="hf-yfzu" d="m9 12 2 2 4-4"/>
+              </svg>
+              <div data-hf-id="hf-yvfm" id="laser-sweep" class="laser-sweep"></div>
+            </div>
+          </div>
+
+          <!-- Titles -->
+          <div data-hf-id="hf-r0my" id="brand-name" class="brand-name clip" data-start="1.2" data-duration="10.8">
+            MedVision AI
+          </div>
+          <div data-hf-id="hf-mn5r" id="brand-role" class="brand-role clip" data-start="1.8" data-duration="10.2">
+            The Multimodal Clinical AI Diagnostic Platform
+          </div>
+          <div data-hf-id="hf-bnnt" id="brand-tagline" class="brand-tagline clip" data-start="2.5" data-duration="9.5">
+            “Empowering Clinicians. Accelerating Diagnoses. Protecting Patients.”
+          </div>
+
+          <!-- Modality Pills -->
+          <div data-hf-id="hf-7wnt" id="badges-row" class="badges-row clip" data-start="3.4" data-duration="8.6">
+            <div data-hf-id="hf-gncn" class="modality-badge">
+              <span data-hf-id="hf-ntwk" class="badge-dot" style="background: #246BFD; box-shadow: 0 0 8px #246BFD;"></span>
+              <span data-hf-id="hf-ciys">Radiology DICOM & CT</span>
+            </div>
+            <div data-hf-id="hf-luev" class="modality-badge">
+              <span data-hf-id="hf-pi72" class="badge-dot" style="background: #F59E0B; box-shadow: 0 0 8px #F59E0B;"></span>
+              <span data-hf-id="hf-kvs1">Dermatology ABCDE</span>
+            </div>
+            <div data-hf-id="hf-lg3u" class="modality-badge">
+              <span data-hf-id="hf-8twy" class="badge-dot" style="background: #10B981; box-shadow: 0 0 8px #10B981;"></span>
+              <span data-hf-id="hf-khol">Retinal Fundus AI</span>
+            </div>
+            <div data-hf-id="hf-l1st" class="modality-badge">
+              <span data-hf-id="hf-7jco" class="badge-dot" style="background: #EC4899; box-shadow: 0 0 8px #EC4899;"></span>
+              <span data-hf-id="hf-a0u5">MedGemma 27B Co-Pilot</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+      <script>
+        (function() {
+          const tl = gsap.timeline({ paused: true });
+
+          // Emblem entry
+          tl.fromTo("#emblem", 
+            { scale: 0.4, opacity: 0, rotate: -20 }, 
+            { scale: 1, opacity: 1, rotate: 0, duration: 1.0, ease: "back.out(1.4)" }, 
+            0.2
+          );
+
+          // Laser sweep across core (using transforms for subpixel smoothness)
+          tl.fromTo("#laser-sweep", 
+            { x: -80, y: -80 }, 
+            { x: 120, y: 120, duration: 0.8, ease: "power2.inOut" }, 
+            0.9
+          );
+
+          // Ring rotation
+          tl.fromTo("#emblem-ring", 
+            { rotate: 0 }, 
+            { rotate: 90, duration: 10.0, ease: "none" }, 
+            0.2
+          );
+
+          // Text reveals
+          tl.fromTo("#brand-name", 
+            { y: 35, opacity: 0, filter: "blur(6px)" }, 
+            { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "power3.out" }, 
+            1.2
+          );
+
+          tl.fromTo("#brand-role", 
+            { y: 20, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 
+            1.8
+          );
+
+          tl.fromTo("#brand-tagline", 
+            { y: 15, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 
+            2.5
+          );
+
+          // Modality badges stagger
+          tl.fromTo(".modality-badge", 
+            { y: 20, opacity: 0, scale: 0.95 }, 
+            { y: 0, opacity: 1, scale: 1, duration: 0.5, stagger: 0.15, ease: "power2.out" }, 
+            3.4
+          );
+
+          // Smooth scale-in transition towards end of scene preparing for login
+          tl.fromTo(".brand-container", 
+            { scale: 1 }, 
+            { scale: 1.12, duration: 4.0, ease: "power1.in" }, 
+            8.0
+          );
+
+          window.__timelines["scene2-reveal"] = tl;
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

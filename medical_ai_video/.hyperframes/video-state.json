@@ -1,0 +1,770 @@
+{
+  "version": 1,
+  "historyId": "03d0ee48-505f-4e43-90d2-77951b5d4fe5",
+  "currentRevision": "8df882a7-7087-4b69-b809-8455d8b3a405",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1b\\1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1b\\1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "hyperframes.json": {
+      "hash": "1e92905873b87cdb0325815499f1196c3f713d70c8d5c8eb76868af301047352",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1e\\1e92905873b87cdb0325815499f1196c3f713d70c8d5c8eb76868af301047352"
+    },
+    "index.html": {
+      "hash": "85bd1d2df1c6db05964553d80422aa2edda455a947cdbe6025e97070bc112241",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\85\\85bd1d2df1c6db05964553d80422aa2edda455a947cdbe6025e97070bc112241"
+    },
+    "meta.json": {
+      "hash": "6529fa9fd5fe61ea12cb0cfc53fcd09f6e580453b7d69d804eb2adda0666a83b",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\65\\6529fa9fd5fe61ea12cb0cfc53fcd09f6e580453b7d69d804eb2adda0666a83b"
+    },
+    "package.json": {
+      "hash": "c1185d4f3e3456f70d109919c16505f403e337dc6fac4e30908a19f178878c2a",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\c1\\c1185d4f3e3456f70d109919c16505f403e337dc6fac4e30908a19f178878c2a"
+    },
+    "assets/sample_data/dermatology_lesion.png": {
+      "hash": "d58f05a83b9365317d89201029ad2e1d79a056f11203de4543004e06ab00edf9",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\d5\\d58f05a83b9365317d89201029ad2e1d79a056f11203de4543004e06ab00edf9"
+    },
+    "assets/sample_data/ophthalmology_fundus.png": {
+      "hash": "b8a13e30ff8be0b52892f9487a82d3fb7dbf1b90aa7006dd7b82b7dfb5c4e34c",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\b8\\b8a13e30ff8be0b52892f9487a82d3fb7dbf1b90aa7006dd7b82b7dfb5c4e34c"
+    },
+    "assets/sample_data/radiology_ct.jpeg": {
+      "hash": "de2079fb45d4bb0e4c6a48481e7b6ee31ab7601e83b43cd07820168b93de1d13",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\de\\de2079fb45d4bb0e4c6a48481e7b6ee31ab7601e83b43cd07820168b93de1d13"
+    },
+    "compositions/components/typed-prompt.html": {
+      "hash": "1cbc18c260e36f2afe71c2dfcbb8f70a6620915c7eb74caa71be3c64761c10af",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1c\\1cbc18c260e36f2afe71c2dfcbb8f70a6620915c7eb74caa71be3c64761c10af"
+    },
+    "compositions/scene1-crisis.html": {
+      "hash": "2af77da9bfeb59c42cb2dea20bfe8d18dc1098f9ba5c37020816c90a43827e93",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\2a\\2af77da9bfeb59c42cb2dea20bfe8d18dc1098f9ba5c37020816c90a43827e93"
+    },
+    "compositions/scene2-reveal.html": {
+      "hash": "070bf23dfb9a78d093a0c4734d0e80fa0ed29fa068c42bec12d5f08162c2d80d",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\07\\070bf23dfb9a78d093a0c4734d0e80fa0ed29fa068c42bec12d5f08162c2d80d"
+    },
+    "compositions/scene3-login.html": {
+      "hash": "22ffc963b3cc4977bb0e25ea8f0d83c3f8f8aedbfdc79f1e4df312c1184d9db6",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\22\\22ffc963b3cc4977bb0e25ea8f0d83c3f8f8aedbfdc79f1e4df312c1184d9db6"
+    },
+    "compositions/scene4-registration.html": {
+      "hash": "5c9725bfb6b194b796ccb76e8017407cc974f2d03a1bb8159dbfd216e7300886",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\5c\\5c9725bfb6b194b796ccb76e8017407cc974f2d03a1bb8159dbfd216e7300886"
+    },
+    "compositions/scene5-ingestion.html": {
+      "hash": "accb82f5db5f745a4400d82dc1b2076ed1b80c13ff6d7d67cca2805a302e51e0",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\ac\\accb82f5db5f745a4400d82dc1b2076ed1b80c13ff6d7d67cca2805a302e51e0"
+    },
+    "compositions/scene6-radiology.html": {
+      "hash": "98f2643aa2f20e17a433afe0733b0b180a5e1eb89b15142bb3ae181291743af8",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\98\\98f2643aa2f20e17a433afe0733b0b180a5e1eb89b15142bb3ae181291743af8"
+    },
+    "compositions/scene7-dermatology.html": {
+      "hash": "19beb23f1f6655128e9782974c08104226e83a49841114a8f189df601293109a",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\19\\19beb23f1f6655128e9782974c08104226e83a49841114a8f189df601293109a"
+    },
+    "compositions/scene8-ophthalmology.html": {
+      "hash": "78d8033ce2f32a84c58bef647288a6bd4acde2a47102da6f73c9ac4c8ea3776e",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\78\\78d8033ce2f32a84c58bef647288a6bd4acde2a47102da6f73c9ac4c8ea3776e"
+    },
+    "compositions/scene9-outro.html": {
+      "hash": "65a51e2fbc1a8ac3f95718b00cbf88037ccaee1bdd7afff3fd351fbe7d4ec89c",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\65\\65a51e2fbc1a8ac3f95718b00cbf88037ccaee1bdd7afff3fd351fbe7d4ec89c"
+    },
+    "hyperframes.lock.json": {
+      "hash": "3952a4a09ee05da37db9251f5ecb801ea9a224ec4a6ae9275472e60212e049d6",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\39\\3952a4a09ee05da37db9251f5ecb801ea9a224ec4a6ae9275472e60212e049d6"
+    },
+    "package-lock.json": {
+      "hash": "6ccf9156104f5d640ad8118bf6d8a9e5db8d5fc89d9c468f5f4b02e4c5529f25",
+      "content": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\6c\\6ccf9156104f5d640ad8118bf6d8a9e5db8d5fc89d9c468f5f4b02e4c5529f25"
+    }
+  },
+  "revisions": {
+    "6d44cb02-619c-4802-b77f-c3ae12344042": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793205947740,
+      "endedAt": 1793205948283,
+      "files": {
+        "assets/sample_data/dermatology_lesion.png": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\d5\\d58f05a83b9365317d89201029ad2e1d79a056f11203de4543004e06ab00edf9"
+        },
+        "assets/sample_data/ophthalmology_fundus.png": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\b8\\b8a13e30ff8be0b52892f9487a82d3fb7dbf1b90aa7006dd7b82b7dfb5c4e34c"
+        },
+        "assets/sample_data/radiology_ct.jpeg": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\de\\de2079fb45d4bb0e4c6a48481e7b6ee31ab7601e83b43cd07820168b93de1d13"
+        },
+        "compositions/components/typed-prompt.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\ea\\ea5562adebc554cd363b4b4bf5b91dcf7b1fc2c73c634cb727e8a7dc149f3723"
+        },
+        "compositions/scene1-crisis.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\5a\\5aff1d2cc2515f9180bafd5dda1bea65adc740244552c17d07583e14930e1397"
+        },
+        "compositions/scene2-reveal.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\61\\619a555d1305222f9dcd91da3ce981321a17044370e3577e157dd24bd0c3a332"
+        },
+        "compositions/scene3-login.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1a\\1a8cc19df077d7bad7cc339ce25eb63c2c67ca9f3e74f2dedb165556346ecc18"
+        },
+        "compositions/scene4-registration.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\c4\\c4c872333bc3c57251caf162e313e0d998ae73e2a6735692460c80256dc7c11b"
+        },
+        "compositions/scene5-ingestion.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\ca\\ca4a2835a80dd1f7b184e9782753275084b530f0d2e423e46c30ac43ee799b8a"
+        },
+        "compositions/scene6-radiology.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\25\\254ba6ea2034d1437cb35bb4c0aa126616d4e6cda2941783a354558d3931916c"
+        },
+        "compositions/scene7-dermatology.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\46\\469cf906748f6fb16662be8dc6d3b1391243648941b9952195b0c4405c8b7471"
+        },
+        "compositions/scene8-ophthalmology.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\d9\\d90e7cecfabe521a30bc688b4b46ddf41098676a9d0e60f02b7efae25c5373cc"
+        },
+        "compositions/scene9-outro.html": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1e\\1e5638afdf3e1a068d02f27781755bd14b649470888ef163d9fb614c13eaeb27"
+        },
+        "hyperframes.json": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\53\\53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1e\\1e92905873b87cdb0325815499f1196c3f713d70c8d5c8eb76868af301047352"
+        },
+        "hyperframes.lock.json": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\39\\3952a4a09ee05da37db9251f5ecb801ea9a224ec4a6ae9275472e60212e049d6"
+        },
+        "index.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\6a\\6a113838a27f17664b975753071997c5946b67f30c6d3d94c781d439c359f41a",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\88\\880feea9657accb5e1da83c2daea37d81764a2dd6bb248703ece328ec9bf8714"
+        }
+      }
+    },
+    "9f2c5cc9-bab2-421e-9e2d-ffdd479dd1c2": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793206061794,
+      "endedAt": 1793206061842,
+      "files": {
+        "compositions/scene2-reveal.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\61\\619a555d1305222f9dcd91da3ce981321a17044370e3577e157dd24bd0c3a332",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\6f\\6fc130ffe4e1adcfbd97b81a9b37c12765eb88f4bd1fbe072a6d8aa42f0d343b"
+        },
+        "compositions/scene3-login.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1a\\1a8cc19df077d7bad7cc339ce25eb63c2c67ca9f3e74f2dedb165556346ecc18",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\86\\86281818564202fb7c27b7da6f15038651b3a90dc194652f182e93a4be48787e"
+        },
+        "compositions/scene4-registration.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\c4\\c4c872333bc3c57251caf162e313e0d998ae73e2a6735692460c80256dc7c11b",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\88\\8835e7b82b02b18decaf78ec7d085797dcb7ff26c033cc12c7512d8dbdc73c2a"
+        }
+      }
+    },
+    "e03a09dc-fa78-4359-8689-412f6af00850": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793206192838,
+      "endedAt": 1793206192844,
+      "files": {
+        "compositions/scene5-ingestion.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\ca\\ca4a2835a80dd1f7b184e9782753275084b530f0d2e423e46c30ac43ee799b8a",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\62\\62e6ac16983761afa8431c6cfe67cfb3ea09e89756c877eb88d30d81c2f38dbd"
+        }
+      }
+    },
+    "7fd4d58c-1971-4399-9c2d-c2fd548877a6": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793206314416,
+      "endedAt": 1793206314422,
+      "files": {
+        "package.json": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\54\\5433b0a63d417e28534e09c4cb49d1c16655755b27451007597e4af73ab3505b",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\51\\510ebbb573fed5112bb5bcf42effd31c32b3b1e1ea2108a0abdf57fedfc24072"
+        }
+      }
+    },
+    "3df63d50-2fee-4df0-85bd-4c8ed00c170f": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793208023117,
+      "endedAt": 1793208023504,
+      "files": {
+        "compositions/components/typed-prompt.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\ea\\ea5562adebc554cd363b4b4bf5b91dcf7b1fc2c73c634cb727e8a7dc149f3723",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1c\\1cbc18c260e36f2afe71c2dfcbb8f70a6620915c7eb74caa71be3c64761c10af"
+        },
+        "compositions/scene1-crisis.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\5a\\5aff1d2cc2515f9180bafd5dda1bea65adc740244552c17d07583e14930e1397",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\a2\\a260c4c9789b15828b812bcf6a9c7030535ff6145dfd767525ad7846d1501ac2"
+        },
+        "compositions/scene2-reveal.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\6f\\6fc130ffe4e1adcfbd97b81a9b37c12765eb88f4bd1fbe072a6d8aa42f0d343b",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\07\\070bf23dfb9a78d093a0c4734d0e80fa0ed29fa068c42bec12d5f08162c2d80d"
+        },
+        "compositions/scene3-login.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\86\\86281818564202fb7c27b7da6f15038651b3a90dc194652f182e93a4be48787e",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\40\\40c97d3090831bbd9d29f29db35619bd2c0647cbd0f4f5b79d65aac0afe0ed86"
+        },
+        "compositions/scene4-registration.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\88\\8835e7b82b02b18decaf78ec7d085797dcb7ff26c033cc12c7512d8dbdc73c2a",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\9f\\9f881e1f6eff051b7257faa094fd7cdb93302fc62ee93bc59705d1d72eb3839d"
+        },
+        "compositions/scene5-ingestion.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\62\\62e6ac16983761afa8431c6cfe67cfb3ea09e89756c877eb88d30d81c2f38dbd",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\22\\229204112e1f7d889044e12526e9f9083216ab044dc4d12c9e1520694e23c4a5"
+        },
+        "compositions/scene6-radiology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\25\\254ba6ea2034d1437cb35bb4c0aa126616d4e6cda2941783a354558d3931916c",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\a1\\a11a8a8004acf680c5ef99eb54b91516329c37fbf47cf12efdc37c58e70261a7"
+        },
+        "compositions/scene7-dermatology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\46\\469cf906748f6fb16662be8dc6d3b1391243648941b9952195b0c4405c8b7471",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\e9\\e9ffdca1f893034475558ad0519c1bfa0e5989cffac43fdd8e0ab992e9cf7e96"
+        },
+        "compositions/scene8-ophthalmology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\d9\\d90e7cecfabe521a30bc688b4b46ddf41098676a9d0e60f02b7efae25c5373cc",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\72\\728b9ea041067c9cfa18224df598612d89d2f48aaec02c4f41fbf870dada7097"
+        },
+        "compositions/scene9-outro.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\1e\\1e5638afdf3e1a068d02f27781755bd14b649470888ef163d9fb614c13eaeb27",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\c4\\c4b886b5dd4c89def1581b88c7ab919ae0436cbe0b4b21abbf1a1b015f0db554"
+        },
+        "index.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\88\\880feea9657accb5e1da83c2daea37d81764a2dd6bb248703ece328ec9bf8714",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\0f\\0f61a2cd4cc1c6968049f763136193a8c2881a81a1110489651e84e2cc02e841"
+        },
+        "package-lock.json": {
+          "before": null,
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\6c\\6ccf9156104f5d640ad8118bf6d8a9e5db8d5fc89d9c468f5f4b02e4c5529f25"
+        },
+        "package.json": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\51\\510ebbb573fed5112bb5bcf42effd31c32b3b1e1ea2108a0abdf57fedfc24072",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\e9\\e9239899a0f4214cf2f966400d9610551cfeb1dcd75f35a4ce1554c99ddcfaa1"
+        }
+      }
+    },
+    "31874ce8-6b3d-49d0-9f6b-7194f2dab29b": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793208320645,
+      "endedAt": 1793208320652,
+      "files": {
+        "package.json": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\e9\\e9239899a0f4214cf2f966400d9610551cfeb1dcd75f35a4ce1554c99ddcfaa1",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\c1\\c1185d4f3e3456f70d109919c16505f403e337dc6fac4e30908a19f178878c2a"
+        }
+      }
+    },
+    "c15cb3b9-f2dc-4bf8-ab87-cf3c6a033396": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793210098205,
+      "endedAt": 1793210098366,
+      "files": {
+        "compositions/scene3-login.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\40\\40c97d3090831bbd9d29f29db35619bd2c0647cbd0f4f5b79d65aac0afe0ed86",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\ab\\ab0936e1d287841f63fb0b3b449b07a3cd7da9581c040f3cf7380fb95e3a0aad"
+        },
+        "compositions/scene4-registration.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\9f\\9f881e1f6eff051b7257faa094fd7cdb93302fc62ee93bc59705d1d72eb3839d",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\44\\448d399d312e43027e161de0e1db0158b00fdd5ffcc3dad11257eefedd99841d"
+        },
+        "compositions/scene5-ingestion.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\22\\229204112e1f7d889044e12526e9f9083216ab044dc4d12c9e1520694e23c4a5",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\c5\\c555e354fcb5807ef749a6ce80a503d95b1f465c964d974b54e7785b8e4e8ade"
+        },
+        "compositions/scene6-radiology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\a1\\a11a8a8004acf680c5ef99eb54b91516329c37fbf47cf12efdc37c58e70261a7",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\30\\30023282b321d45cfb54b4a3901c7d5519f3999e93ed6faab63b2ee2fe89e6e6"
+        },
+        "compositions/scene7-dermatology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\e9\\e9ffdca1f893034475558ad0519c1bfa0e5989cffac43fdd8e0ab992e9cf7e96",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\47\\47e6615e465deb2c933b18b973750b87f643b398c054cb387eec448106989b7f"
+        },
+        "compositions/scene8-ophthalmology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\72\\728b9ea041067c9cfa18224df598612d89d2f48aaec02c4f41fbf870dada7097",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\d1\\d18db705cf57782ddb6266c39f37cdb4c654258c31b9da71414b50904b9d169f"
+        }
+      }
+    },
+    "9cc37d08-eeff-4138-b357-c5973433362b": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793210174029,
+      "endedAt": 1793210174063,
+      "files": {
+        "compositions/scene6-radiology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\30\\30023282b321d45cfb54b4a3901c7d5519f3999e93ed6faab63b2ee2fe89e6e6",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\56\\56a0a20151c9d8c98b856f190b07de7a48c2a7aea433a69101ddfcde0adf61c6"
+        },
+        "compositions/scene7-dermatology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\47\\47e6615e465deb2c933b18b973750b87f643b398c054cb387eec448106989b7f",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\4d\\4d3dd205b0e2a318391dc90c972daa34ecd3a4d93aa1f90a863e7ea2be9abbc5"
+        },
+        "compositions/scene8-ophthalmology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\d1\\d18db705cf57782ddb6266c39f37cdb4c654258c31b9da71414b50904b9d169f",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\78\\78f96f3cd748125af8a5dec9b721eb5038171fdbb8c32845acfbda645bdcca33"
+        }
+      }
+    },
+    "088646ba-db76-4750-962d-37fdff0ebdd4": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793210483903,
+      "endedAt": 1793210484013,
+      "files": {
+        "compositions/scene3-login.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\ab\\ab0936e1d287841f63fb0b3b449b07a3cd7da9581c040f3cf7380fb95e3a0aad",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\34\\34435ce17f45c5a26b41dc1ca2b8653b6f390835d5fc04f99930f060701e9ed4"
+        },
+        "compositions/scene4-registration.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\44\\448d399d312e43027e161de0e1db0158b00fdd5ffcc3dad11257eefedd99841d",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\e1\\e1ee4be0eb7f00484c42457603f6be66e4ee3eae49e854c7df02a5555582046b"
+        },
+        "compositions/scene5-ingestion.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\c5\\c555e354fcb5807ef749a6ce80a503d95b1f465c964d974b54e7785b8e4e8ade",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\ac\\accb82f5db5f745a4400d82dc1b2076ed1b80c13ff6d7d67cca2805a302e51e0"
+        },
+        "compositions/scene6-radiology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\56\\56a0a20151c9d8c98b856f190b07de7a48c2a7aea433a69101ddfcde0adf61c6",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\99\\99fcfc86c39984d6e4af8b9916341ef8bdcb70da3935db0f3c937d5b195ebe82"
+        },
+        "compositions/scene7-dermatology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\4d\\4d3dd205b0e2a318391dc90c972daa34ecd3a4d93aa1f90a863e7ea2be9abbc5",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\8d\\8d938ae7d90dc229b5f7fb2318be5ed3deceba229b5c5693b48e4641e9b8b80a"
+        },
+        "compositions/scene8-ophthalmology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\78\\78f96f3cd748125af8a5dec9b721eb5038171fdbb8c32845acfbda645bdcca33",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\bf\\bfade1fcb6a6799a1733387b1099367c8dfae4a46e262809c4110939a5f00e0e"
+        },
+        "compositions/scene9-outro.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\c4\\c4b886b5dd4c89def1581b88c7ab919ae0436cbe0b4b21abbf1a1b015f0db554",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\65\\65a51e2fbc1a8ac3f95718b00cbf88037ccaee1bdd7afff3fd351fbe7d4ec89c"
+        }
+      }
+    },
+    "2838bb61-c4d8-4473-be46-24d117fa7141": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793210622043,
+      "endedAt": 1793210622075,
+      "files": {
+        "compositions/scene4-registration.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\e1\\e1ee4be0eb7f00484c42457603f6be66e4ee3eae49e854c7df02a5555582046b",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\5c\\5c9725bfb6b194b796ccb76e8017407cc974f2d03a1bb8159dbfd216e7300886"
+        },
+        "compositions/scene6-radiology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\99\\99fcfc86c39984d6e4af8b9916341ef8bdcb70da3935db0f3c937d5b195ebe82",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\e7\\e7729a2372956275cbb3b48f937a83f0ab58dfa3580d7b00d151f5fd45c6768b"
+        },
+        "index.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\0f\\0f61a2cd4cc1c6968049f763136193a8c2881a81a1110489651e84e2cc02e841",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\62\\62ad4a699c8f96c7097d88760cab31500e4543f7779a2c79ea34a9ab810dbfa6"
+        }
+      }
+    },
+    "62cbcaa2-8551-4ec2-ba3c-b0a628312232": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793210728311,
+      "endedAt": 1793210728315,
+      "files": {
+        "compositions/scene1-crisis.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\a2\\a260c4c9789b15828b812bcf6a9c7030535ff6145dfd767525ad7846d1501ac2",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\2a\\2af77da9bfeb59c42cb2dea20bfe8d18dc1098f9ba5c37020816c90a43827e93"
+        }
+      }
+    },
+    "f647d885-d141-401a-8f3d-9ac0d4ac3d9a": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793212484356,
+      "endedAt": 1793212484389,
+      "files": {
+        "compositions/scene6-radiology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\e7\\e7729a2372956275cbb3b48f937a83f0ab58dfa3580d7b00d151f5fd45c6768b",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\98\\98f2643aa2f20e17a433afe0733b0b180a5e1eb89b15142bb3ae181291743af8"
+        },
+        "index.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\62\\62ad4a699c8f96c7097d88760cab31500e4543f7779a2c79ea34a9ab810dbfa6",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\85\\85bd1d2df1c6db05964553d80422aa2edda455a947cdbe6025e97070bc112241"
+        }
+      }
+    },
+    "8df882a7-7087-4b69-b809-8455d8b3a405": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793212669486,
+      "endedAt": 1793212669532,
+      "files": {
+        "compositions/scene3-login.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\34\\34435ce17f45c5a26b41dc1ca2b8653b6f390835d5fc04f99930f060701e9ed4",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\22\\22ffc963b3cc4977bb0e25ea8f0d83c3f8f8aedbfdc79f1e4df312c1184d9db6"
+        },
+        "compositions/scene7-dermatology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\8d\\8d938ae7d90dc229b5f7fb2318be5ed3deceba229b5c5693b48e4641e9b8b80a",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\19\\19beb23f1f6655128e9782974c08104226e83a49841114a8f189df601293109a"
+        },
+        "compositions/scene8-ophthalmology.html": {
+          "before": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\bf\\bfade1fcb6a6799a1733387b1099367c8dfae4a46e262809c4110939a5f00e0e",
+          "after": "C:\\Users\\Yash\\.cache\\hyperframes\\history\\03d0ee48-505f-4e43-90d2-77951b5d4fe5\\blobs\\78\\78d8033ce2f32a84c58bef647288a6bd4acde2a47102da6f73c9ac4c8ea3776e"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "dbb04ac2-1d35-401e-b681-a2909da1ac5f"
+    },
+    "revisions": {
+      "6d44cb02-619c-4802-b77f-c3ae12344042": [
+        {
+          "id": "3ef7c0e4-14a1-407f-ba03-4548eb80af35",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": true,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793205948705,
+          "contentHash": "f73373d3e71dd9f0bd4559b56206a4a8d9c875fab1703e0868a341de691bc237",
+          "revision": "6d44cb02-619c-4802-b77f-c3ae12344042",
+          "inputFingerprint": "d4661912a9bf96e592bc5f59f07deef6887432e153e92f3abb8111cc9b7e1894",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "007cbbe3-0e39-45ef-a281-ebc5c6031ab0"
+        }
+      ],
+      "3df63d50-2fee-4df0-85bd-4c8ed00c170f": [
+        {
+          "id": "45ac0838-fe45-4610-b566-abcce2f24b2a",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793208087072,
+          "contentHash": "e30eb8074dedf6781136a508c2676b679f8f60d14ba7315481123ff661692777",
+          "revision": "3df63d50-2fee-4df0-85bd-4c8ed00c170f",
+          "inputFingerprint": "c75dada9cfbc4b5b47f0a3b6dc5e89fcc4cb48523710c94176c66c8c2f4aecd6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "4c6d50a8-a5f5-4445-bc75-be59458bb14a"
+        }
+      ],
+      "c15cb3b9-f2dc-4bf8-ab87-cf3c6a033396": [
+        {
+          "id": "4f75616e-a4a1-4217-bdf0-bb0e0146a268",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": true,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793210109760,
+          "contentHash": "3c317afe88e727aba889a1595b7e0a7dd6ffc012d273a9f850b30167a5c042e9",
+          "revision": "c15cb3b9-f2dc-4bf8-ab87-cf3c6a033396",
+          "inputFingerprint": "787762bed40dd27836c7c5e758b223e1bdc7752766157b56de051fff0cfedf81",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "567e9491-4bc6-4923-b58b-d33397b550bb"
+        }
+      ],
+      "9cc37d08-eeff-4138-b357-c5973433362b": [
+        {
+          "id": "dfdb335e-edef-4ebd-9e76-c94c776dd3ef",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793210228237,
+          "contentHash": "86e4bfd900b9ef47426a231adfabd9c51dbc47ab074973391da876ac7f7b496a",
+          "revision": "9cc37d08-eeff-4138-b357-c5973433362b",
+          "inputFingerprint": "58df2a72696e83ed8b5440c769ab45d162e22a2e701f80c1732228a3ad626c11",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "567e9491-4bc6-4923-b58b-d33397b550bb"
+        }
+      ],
+      "088646ba-db76-4750-962d-37fdff0ebdd4": [
+        {
+          "id": "a2c3a644-e62c-4044-bc83-f581fba8de7c",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793210532839,
+          "contentHash": "bfb0659589b6dc4f20a2eee45ba78c95b0f1cd4f2a6ccdfe069a82d029321bff",
+          "revision": "088646ba-db76-4750-962d-37fdff0ebdd4",
+          "inputFingerprint": "e056f6f16f1bd5245c6849cac02d2ce949cef4948e908d70ced595566dac1f83",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "567e9491-4bc6-4923-b58b-d33397b550bb"
+        }
+      ],
+      "2838bb61-c4d8-4473-be46-24d117fa7141": [
+        {
+          "id": "ecd05db1-1efe-4d0b-9ad1-4998af691b99",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793210688694,
+          "contentHash": "af5042628ee4a45ee66080f5ddabb309d9709f46feb7ca13358bdf125220395e",
+          "revision": "2838bb61-c4d8-4473-be46-24d117fa7141",
+          "inputFingerprint": "0752b22e4ca0e9a30b2df09933d80024d1770df7a0e0e241734518abd846d5db",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "567e9491-4bc6-4923-b58b-d33397b550bb"
+        }
+      ],
+      "f647d885-d141-401a-8f3d-9ac0d4ac3d9a": [
+        {
+          "id": "32775ea6-2596-4c89-8572-096664c7da51",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793212564771,
+          "contentHash": "8633f166674a3773d131a60f8c171d99e519beae39f0424e5aa93a71caa1f538",
+          "revision": "f647d885-d141-401a-8f3d-9ac0d4ac3d9a",
+          "inputFingerprint": "30b39225669edbe0da4d35167616c2fc74e8fdd0f8dc9d90b0a1a25dfbe775ce",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "246e553c-be49-4fae-b462-f72e91afe238"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "b4953c2b-7f24-47d2-9934-e637361b64b8",
+        "scope": "project",
+        "report": "F:\\Medical-AI-demo-video\\medical_ai_video\\.hyperframes\\artifacts\\checks\\b4953c2b-7f24-47d2-9934-e637361b64b8.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793205459789,
+        "contentHash": "b519d8eeb9db8cfc3469d26082451a075e109f3a5888c09590f2d38bcafcdcb4",
+        "revision": null,
+        "inputFingerprint": "de9db52ab594a6c582001fa672f127b4436b04541d7be83298ce026a717bd352",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "id": "dbb04ac2-1d35-401e-b681-a2909da1ac5f",
+        "scope": "project",
+        "report": "F:\\Medical-AI-demo-video\\medical_ai_video\\.hyperframes\\artifacts\\checks\\dbb04ac2-1d35-401e-b681-a2909da1ac5f.json",
+        "metadata": {
+          "ok": false,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793206113959,
+        "contentHash": "c3f68685c1ba1f59c810e1896460583dbb4ab04b12db100f2c92f2e9a4407856",
+        "revision": null,
+        "inputFingerprint": "05cce04e6391f10cbafa6a1b29d56ef6cfa6c0e341ea0f6ab0ed83f0b252cbcf",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "246e553c-be49-4fae-b462-f72e91afe238",
+      "completedAt": 1793213225767,
+      "output": "F:\\Medical-AI-demo-video\\medical_ai_video\\MedVision_AI_Product_Demo_Video.mp4",
+      "status": "completed",
+      "revision": "8df882a7-7087-4b69-b809-8455d8b3a405"
+    },
+    "retainedRevisions": [
+      "8df882a7-7087-4b69-b809-8455d8b3a405",
+      "62cbcaa2-8551-4ec2-ba3c-b0a628312232"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

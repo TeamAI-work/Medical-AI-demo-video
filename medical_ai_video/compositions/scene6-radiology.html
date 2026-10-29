@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scene 6: Radiology AI Co-Pilot Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 p-0 overflow-hidden bg-[#EBEFF5]">
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          background-color: #EBEFF5;
+          background-image: 
+            radial-gradient(1200px 600px at 85% -10%, rgba(36, 107, 253, 0.08), transparent 60%),
+            radial-gradient(900px 500px at -10% 110%, rgba(29, 52, 99, 0.07), transparent 60%);
+          font-family: 'Inter', sans-serif;
+          color: #16233B;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .virtual-cursor {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          z-index: 150;
+          pointer-events: none;
+          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        .caret {
+          display: inline-block;
+          width: 2px;
+          height: 14px;
+          background: #1D3463;
+          margin-left: 1px;
+          vertical-align: middle;
+          animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+          0%, 49% { opacity: 1; }
+          50%, 100% { opacity: 0; }
+        }
+      </style>
+
+      <div data-hf-id="hf-root6" id="root" data-composition-id="scene6-radiology" data-width="1920" data-height="1080">
+        <!-- Virtual Cursor -->
+        <svg data-hf-id="hf-cursor6" id="cursor" class="virtual-cursor clip" data-start="0.5" data-duration="34.5" viewBox="0 0 24 24" fill="none">
+          <path data-hf-id="hf-cpath6" d="M5.5 3.5l12 11.5-5.5 1-2.5 5-2.5-1 2.5-5-4-1.5z" fill="#16233B" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- ── Top Header Bar (Exact MedicalAi/src/App.jsx) ── -->
+        <header data-hf-id="hf-header6" class="relative shrink-0 w-full px-8 py-2.5 bg-white/90 backdrop-blur-md border-b border-[#DCE2EA] flex items-center justify-between shadow-[0_1px_2px_rgba(30,50,90,0.04)] z-30">
+          <div data-hf-id="hf-brand6" class="flex items-center gap-2.5 shrink-0">
+            <div class="w-8 h-8 rounded-xl border border-[#DCE2EA] bg-white shadow-xs flex items-center justify-center p-1">
+              <span class="font-black text-xs text-[#E13333] tracking-tighter leading-none select-none font-sans">MV</span>
+            </div>
+            <div class="min-w-0">
+              <h1 class="text-sm font-semibold text-[#16233B] tracking-tight leading-tight truncate">MedVision AI</h1>
+              <span class="text-[10px] text-[#637188] block truncate leading-tight">Life Care Medico Hospital</span>
+            </div>
+          </div>
+
+          <!-- Nav Pill with "report scan" active -->
+          <div data-hf-id="hf-navpill6" class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <nav class="flex items-center bg-[#EBEFF4] p-1 rounded-full border border-[#DCE2EA] shadow-inner gap-1">
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] font-medium">dashboard</button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] font-medium">patients</button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full bg-[#1D3463] text-white shadow-xs font-semibold">report scan</button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] font-medium">settings</button>
+            </nav>
+          </div>
+
+          <div class="shrink-0 w-8"></div>
+        </header>
+
+        <!-- ── Main Workspace Body (Exact RadiologyWorkspace.jsx) ── -->
+        <main class="flex-1 w-full p-4 flex flex-col gap-3 min-h-0 overflow-hidden">
+          
+          <!-- Top Patient Identity Header (Exact RadiologyWorkspace.jsx lines 1045-1111) -->
+          <div class="shrink-0 w-full bg-white/90 backdrop-blur-md rounded-2xl px-5 py-2.5 flex items-center justify-between border border-[#DCE2EA] shadow-xs">
+            <div class="flex items-center gap-3.5">
+              <div class="w-9 h-9 rounded-full bg-[#E0F2FE] text-[#0369A1] border border-[#BAE6FD] flex items-center justify-center font-bold text-xs shrink-0">
+                EV
+              </div>
+              <div class="flex items-center gap-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h2 class="text-sm font-bold text-[#16233B]">Eleanor Vance</h2>
+                    <span class="text-xs text-[#637188] font-medium">(58y, Female)</span>
+                    <span class="px-2 py-0.2 rounded-full text-[10px] font-bold bg-[#FDEAEA] text-[#AD1F1F] border border-[#E13333]/30">STAT URGENT</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-[11px] text-[#637188] mt-0.5 font-mono">
+                    <span>ID: PT-1002</span>
+                    <span>•</span>
+                    <span>Modality: CT Thorax with IV Contrast</span>
+                    <span>•</span>
+                    <span>Study Date: 28/10/2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#E7EEFE] text-[#154CC1] border border-[#246BFD]/25">
+                Radiology Department
+              </span>
+              <button id="rx-complete-btn" class="px-4 py-1.5 rounded-full text-xs font-semibold bg-[#246BFD] text-white shadow-xs flex items-center gap-1.5 cursor-pointer">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Complete diagnosis</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ── The Three-Section Split Screen (Exact RadiologyWorkspace.jsx lines 1113-2298) ── -->
+          <div class="grid grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
+            
+            <!-- ══════════════════════════════════════════════════════════════════════
+                SECTION 1 (LEFT PANEL): MULTI-SLICE CT VIEWER & PDF REPORTS (§12.1)
+                ══════════════════════════════════════════════════════════════════════ -->
+            <div class="col-span-4 bg-white/95 rounded-2xl border border-[#DCE2EA] shadow-xs p-3.5 flex flex-col gap-3 min-h-0 overflow-hidden">
+              <div class="flex items-center justify-between pb-2 border-b border-[#DCE2EA] shrink-0">
+                <div class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                  <span class="text-xs font-bold text-[#16233B]">Patient Scans</span>
+                  <span class="px-1.5 py-0.2 rounded-full text-[10px] font-semibold bg-[#E7EEFE] text-[#154CC1] border border-[#246BFD]/20">24 Slices</span>
+                </div>
+                <div class="flex items-center gap-1 text-[10px] font-mono text-[#637188]">
+                  <span>WW: 1500 WL: -600 (Lung)</span>
+                </div>
+              </div>
+
+              <!-- CT Viewer Screen (Exact dark radial gradient #1E293B -> #020617) -->
+              <div class="flex-1 min-h-[300px] rounded-xl overflow-hidden relative flex items-center justify-center border border-[#272C3A]" style="background: radial-gradient(ellipse at center, #1E293B 0%, #020617 100%);">
+                <!-- Authentic CT Scan Image -->
+                <img
+                  id="ct-scan-img"
+                  src="../assets/sample_data/radiology_ct.jpeg"
+                  alt="High-Resolution Chest CT Scan"
+                  class="w-full h-full object-contain filter contrast-125"
+                />
+
+                <!-- AI Bounding Box Over Solitary Pulmonary Nodule in Right Upper Lobe -->
+                <div id="ai-box" class="absolute w-[110px] h-[110px] top-[46%] left-[54%] -translate-x-1/2 -translate-y-1/2 border-2 border-cyan-400 rounded-lg shadow-[0_0_15px_rgba(0,240,255,0.5)] flex flex-col justify-between pointer-events-none">
+                  <div class="bg-cyan-400 text-black text-[9px] font-bold px-1.5 py-0.5 rounded-t-sm tracking-wider uppercase flex items-center justify-between">
+                    <span>3.2cm Mass</span>
+                    <span>94.8% Malig</span>
+                  </div>
+                  <div class="p-1 text-[8px] font-mono text-cyan-300 bg-black/60 rounded-b-sm">
+                    Pleural tethering (+)
+                  </div>
+                </div>
+
+                <!-- HUD Overlays -->
+                <div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/70 backdrop-blur-xs text-[10px] font-mono text-cyan-300 border border-cyan-500/20">
+                  <span id="slice-label">SLICE 14 / 24</span>
+                </div>
+                <div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-black/70 backdrop-blur-xs text-[10px] font-mono text-slate-300">
+                  Thorax CT • 1.25mm
+                </div>
+              </div>
+
+              <!-- Slice Scrubber Slider (Exact RadiologyWorkspace.jsx lines 1400-1440) -->
+              <div class="flex items-center gap-2 px-1 shrink-0">
+                <button class="w-6 h-6 rounded flex items-center justify-center text-slate-500 hover:bg-slate-100 text-sm">‹</button>
+                <div class="flex-1 h-1.5 bg-slate-200 rounded-lg relative overflow-hidden">
+                  <div id="scrub-bar" class="h-full bg-[#246BFD] rounded-lg transition-all" style="width: 58%;"></div>
+                </div>
+                <button class="w-6 h-6 rounded flex items-center justify-center text-slate-500 hover:bg-slate-100 text-sm">›</button>
+              </div>
+
+              <!-- Attached PDF Reports (Exact RadiologyWorkspace.jsx lines 1445-1510) -->
+              <div class="pt-2 border-t border-[#DCE2EA] flex flex-col gap-2 shrink-0">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold text-[#16233B] flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-[#E13333]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span>Attached pdf reports (1)</span>
+                  </span>
+                  <span class="text-[10.5px] font-semibold text-[#1D3463] bg-[#E7EEFE] px-2 py-0.5 rounded-full border border-[#246BFD]/20">+ Add report</span>
+                </div>
+                <div class="p-2 bg-[#F8FAFC] border border-[#DCE2EA] rounded-xl flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded bg-[#FDEAEA] text-[#E13333] flex items-center justify-center font-bold text-[10px]">PDF</div>
+                    <div>
+                      <div class="text-[11px] font-semibold text-[#16233B]">clinical_radiology_report.pdf</div>
+                      <div class="text-[9.5px] text-[#637188] font-mono">184 KB • Verified Signed</div>
+                    </div>
+                  </div>
+                  <span class="text-[10px] text-[#246BFD] font-semibold">View</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════════════
+                SECTION 2 (MIDDLE PANEL): CLINICAL REPORT & MEDICATION TRACKING SYSTEM
+                ══════════════════════════════════════════════════════════════════════ -->
+            <div class="col-span-4 bg-white/95 rounded-2xl border border-[#DCE2EA] shadow-xs flex flex-col min-h-0 overflow-hidden">
+              <!-- Report Header -->
+              <div class="px-4 py-3 border-b border-[#DCE2EA] flex items-center justify-between bg-white shrink-0">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-xs font-bold text-[#16233B] uppercase tracking-wider">Diagnostic Radiology Report</h3>
+                  <span class="text-[10px] font-mono text-[#637188] bg-[#F1F5F9] px-1.5 py-0.5 rounded border border-[#DCE2EA]">PT-1002</span>
+                </div>
+                <!-- View Switch: Report vs Rx -->
+                <div class="flex items-center gap-1 bg-[#F1F5F9] p-0.5 rounded-full border border-[#DCE2EA]">
+                  <button id="tab-report" class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-[#1D3463] text-white shadow-xs">Report</button>
+                  <button id="tab-rx" class="px-2.5 py-0.5 text-xs font-semibold rounded-full text-[#637188]">Rx (2)</button>
+                </div>
+              </div>
+
+              <!-- Report Scroll Area -->
+              <div id="report-content" class="p-4 flex-1 overflow-y-auto flex flex-col gap-3 text-xs leading-relaxed">
+                <!-- Indication -->
+                <div>
+                  <span class="font-bold text-[#16233B]">Clinical Indication:</span>
+                  <p class="text-[#475569] mt-0.5">58-year-old female presenting with acute pleuritic right-sided chest pain, persistent hemoptysis for 3 weeks, and 12-pack-year smoking history.</p>
+                </div>
+
+                <!-- Critical Red Flag Card -->
+                <div class="p-3 bg-[#FDEAEA] border border-[#E13333]/30 rounded-xl flex flex-col gap-1 text-[#AD1F1F]">
+                  <div class="flex items-center gap-1.5 font-bold text-xs">
+                    <svg class="w-4 h-4 text-[#E13333]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span>CRITICAL FINDING: Solitary Pulmonary Mass</span>
+                  </div>
+                  <p class="text-[11px] leading-snug">Spiculated lesion with high malignancy risk requiring rapid multidisciplinary oncology staging.</p>
+                </div>
+
+                <!-- Systematic Findings -->
+                <div>
+                  <span class="font-bold text-[#16233B]">Systematic Findings:</span>
+                  <ul class="list-disc pl-4 mt-1 space-y-1 text-[#475569]">
+                    <li><strong class="text-[#16233B]">Lungs/Pleura:</strong> 3.2 x 2.8 cm heterogeneously enhancing solitary pulmonary mass in right upper lobe with corona radiata and pleural retraction.</li>
+                    <li><strong class="text-[#16233B]">Mediastinum:</strong> Station 4R paratracheal node measures 1.2 cm in short axis. No subcarinal lymphadenopathy.</li>
+                    <li><strong class="text-[#16233B]">Cardiovascular:</strong> Main pulmonary arterial trunk patent without filling defects.</li>
+                  </ul>
+                </div>
+
+                <!-- Impression Box -->
+                <div class="p-3 bg-[#E7EEFE]/50 border border-[#246BFD]/25 rounded-xl flex flex-col gap-1.5">
+                  <span class="font-bold text-[#154CC1]">Impression:</span>
+                  <p class="text-[#16233B] font-medium text-[11.5px]">
+                    1. Primary bronchogenic carcinoma of the right upper lobe (cT2aN1M0, Stage IIB).<br/>
+                    2. Recommend urgent thoracic surgery consult, PET-CT staging, and core biopsy.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Rx Switch Content (Hidden by default, shown when doctor toggles Rx) -->
+              <div id="rx-content" class="p-4 flex-1 overflow-y-auto flex-col gap-2.5 text-xs" style="display: none;">
+                <div class="flex items-center justify-between pb-1.5 border-b border-[#DCE2EA]">
+                  <span class="font-bold text-[#16233B]">Clinical Prescription & Oncology Workup</span>
+                  <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">2 Items Configured</span>
+                </div>
+                <div class="p-2.5 bg-white border border-[#DCE2EA] rounded-xl flex flex-col gap-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-[#16233B]">1. Urgent Thoracic Oncology Consultation</span>
+                    <span class="text-[10px] font-bold text-[#AD1F1F] bg-[#FDEAEA] px-1.5 rounded">STAT</span>
+                  </div>
+                  <p class="text-[11px] text-[#637188]">Referral for PET-CT whole body staging & bronchoscopic biopsy.</p>
+                </div>
+                <div class="p-2.5 bg-white border border-[#DCE2EA] rounded-xl flex flex-col gap-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-[#16233B]">2. Codeine Phosphate Syrup (15mg/5mL)</span>
+                    <span class="text-[10px] font-mono text-[#154CC1] bg-[#E7EEFE] px-1.5 rounded">10 mL BID • 5 Days</span>
+                  </div>
+                  <p class="text-[11px] text-[#637188]">Symptomatic suppression of severe paroxysmal coughing spasms.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════════════════════════════
+                SECTION 3 (RIGHT PANEL): EXACT REPORTCHATPANEL.JSX CO-PILOT (§10.5)
+                ══════════════════════════════════════════════════════════════════════ -->
+            <div class="col-span-4 bg-white/95 rounded-2xl border border-[#DCE2EA] shadow-xs flex flex-col min-h-0 overflow-hidden">
+              <!-- Chat Header -->
+              <div class="px-4 py-3 bg-white border-b border-[#DCE2EA] flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-xl bg-[#E7EEFE] text-[#154CC1] border border-[#246BFD]/25 flex items-center justify-center shrink-0 shadow-xs">
+                    <svg class="w-4 h-4 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-[#16233B] leading-tight">Clinical Report AI Co-Pilot</h4>
+                    <span class="text-[10px] text-[#637188] block">Grounded in CT Thorax & active EHR data</span>
+                  </div>
+                </div>
+                <span class="text-[10px] font-semibold text-emerald-700 bg-[#E3F7ED] px-2 py-0.5 rounded-full border border-emerald-200">MedGemma 27B</span>
+              </div>
+
+              <!-- Suggested Department Prompts (Exact ReportChatPanel.jsx lines 217-250) -->
+              <div class="px-3 py-2 bg-[#F8FAFC] border-b border-[#DCE2EA] flex items-center gap-1.5 overflow-x-auto shrink-0">
+                <span class="px-2.5 py-1 bg-white hover:bg-slate-50 border border-[#DCE2EA] rounded-full text-[10.5px] font-medium text-[#16233B] whitespace-nowrap">Summarize findings</span>
+                <span class="px-2.5 py-1 bg-white hover:bg-slate-50 border border-[#DCE2EA] rounded-full text-[10.5px] font-medium text-[#16233B] whitespace-nowrap">Fleischner protocol</span>
+                <span class="px-2.5 py-1 bg-white hover:bg-slate-50 border border-[#DCE2EA] rounded-full text-[10.5px] font-medium text-[#16233B] whitespace-nowrap">Differential diagnosis</span>
+              </div>
+
+              <!-- Chat Message Thread -->
+              <div id="chat-thread" class="p-3.5 flex-1 overflow-y-auto flex flex-col gap-3 min-h-0 text-xs">
+                <!-- Message 1: User prompt -->
+                <div id="msg-user" class="px-3.5 py-2.5 rounded-2xl bg-[#1D3463] text-white text-xs max-w-[85%] self-end shadow-xs" style="display: none; opacity: 0;">
+                  <span id="typed-query"></span>
+                </div>
+
+                <!-- Message 2: MedGemma Assistant Reply -->
+                <div id="msg-ai" class="px-3.5 py-2.5 rounded-2xl bg-[#F8FAFC] border border-[#DCE2EA] text-[#16233B] text-xs max-w-[92%] self-start flex flex-col gap-1.5 shadow-2xs" style="display: none; opacity: 0;">
+                  <div class="flex items-center gap-1.5 font-bold text-[#154CC1] text-[11px]">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+                    <span>MedGemma Clinical Synthesis</span>
+                  </div>
+                  <p class="leading-relaxed text-[11.5px]">
+                    Per <strong>Fleischner Society Guidelines</strong> for solid nodules &gt;8mm in high-risk patients:
+                  </p>
+                  <ul class="list-disc pl-4 space-y-0.5 text-[11px] text-[#475569]">
+                    <li>Full thoracic contrast CT completed.</li>
+                    <li>Recommend immediate <strong>PET-CT staging</strong> for paratracheal 4R lymph node involvement.</li>
+                    <li>Tissue sampling via CT-guided core biopsy or bronchoscopy.</li>
+                  </ul>
+                  <div class="pt-1 border-t border-[#E2E8F0] text-[9.5px] text-[#637188] flex items-center justify-between">
+                    <span>Guideline Concordance: 99.4%</span>
+                    <span>Ref: Fleischner 2024 / NCCN Lung</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chat Input Box (Exact ReportChatPanel.jsx) -->
+              <div class="p-3 bg-white border-t border-[#DCE2EA] flex items-center gap-2 shrink-0">
+                <div id="chat-input-box" class="flex-1 bg-[#F8FAFC] border border-[#DCE2EA] rounded-xl px-3 py-2 text-xs flex items-center min-h-[36px]">
+                  <span id="chat-val" class="font-medium text-[#16233B]"></span>
+                  <span id="chat-caret" class="caret" style="display: none;"></span>
+                  <span id="chat-ph" class="text-[#8C98A9]">Ask clinical co-pilot about this scan or report...</span>
+                </div>
+                <button id="chat-send-btn" class="w-8 h-8 rounded-xl bg-[#1D3463] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ── 1-Click Prescription Print Modal Pop-up (Exact PrescriptionPrintModal.jsx) ── -->
+        <div id="rx-modal-backdrop" class="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/45 backdrop-blur-[2px]" style="display: none; opacity: 0;">
+          <div id="rx-modal-card" class="w-full max-w-lg bg-white border border-[#DCE2EA] rounded-2xl shadow-2xl p-6 flex flex-col gap-4 transform scale-95 transition-all">
+            <div class="flex items-center justify-between pb-3 border-b border-[#DCE2EA]">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-xl bg-[#E3F7ED] text-[#147145] flex items-center justify-center font-bold">
+                  Rx
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-[#16233B]">Electronic Clinical Prescription</h3>
+                  <p class="text-[10px] text-[#637188]">Life Care Medico Hospital • Diagnostic Radiology</p>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                ✓ Ready for Print & Pharmacy
+              </span>
+            </div>
+
+            <div class="p-3 bg-[#F8FAFC] border border-[#DCE2EA] rounded-xl text-xs flex flex-col gap-2">
+              <div class="flex justify-between font-mono text-[11px] text-[#637188]">
+                <span>PATIENT: Eleanor Vance (58/F)</span>
+                <span>MRN: PT-1002</span>
+              </div>
+              <div class="border-t border-[#E2E8F0] pt-2">
+                <div class="font-bold text-[#16233B]">1. Urgent Thoracic Oncology Workup & PET-CT Staging</div>
+                <div class="text-[11px] text-[#637188]">2. Codeine Phosphate Syrup 15mg/5mL — 10mL BID x 5 days</div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-[10px] text-[#637188]">Signed: Dr. Sarah Mitchell, MD • License: MD-92104</span>
+              <div class="flex items-center gap-2">
+                <button id="print-rx-btn" class="px-4 py-1.5 rounded-full text-xs font-semibold bg-[#1D3463] text-white">Print Prescription</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function() {
+          const tl = gsap.timeline({ paused: true });
+          window.__timelines = window.__timelines || {};
+      window.__timelines["scene6-radiology"] = tl;
+
+      function buildTypingSteps(text) {
+        const steps = [];
+        for (let i = 1; i <= text.length; i++) {
+          steps.push(text.slice(0, i));
+        }
+        return steps;
+      }
+
+      // Initial state
+      tl.set("#cursor", { x: 500, y: 300, opacity: 0 });
+      tl.set("#ai-box", { scale: 0.9, opacity: 0 });
+      tl.set("#msg-user", { display: "none", opacity: 0 });
+      tl.set("#msg-ai", { display: "none", opacity: 0 });
+      tl.set("#rx-modal-backdrop", { display: "none", opacity: 0 });
+
+      // 0.0s - 0.5s: Cursor enters
+      tl.to("#cursor", { opacity: 1, duration: 0.3 }, 0.5);
+
+      // 0.8s: AI Bounding Box locks onto solitary mass
+      tl.to("#ai-box", { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 0.8);
+
+      // 1.5s - 4.0s: Scrub through CT slices (Slider moves, label updates)
+      tl.to("#cursor", { x: 380, y: 735, duration: 1.0, ease: "power2.inOut" }, 1.5);
+      tl.to("#scrub-bar", { width: "72%", duration: 1.5, ease: "power1.inOut" }, 2.5);
+      tl.call(() => {
+        document.getElementById("slice-label").textContent = "SLICE 18 / 24";
+      }, null, 3.2);
+
+      // 5.0s - 7.5s: Cursor moves to Co-Pilot chat prompt box
+      tl.to("#cursor", { x: 1600, y: 885, duration: 1.2, ease: "power2.inOut" }, 5.0);
+
+      // 7.8s: Focus Chat Input
+      tl.call(() => {
+        document.getElementById("chat-ph").style.display = "none";
+        document.getElementById("chat-caret").style.display = "inline-block";
+        document.getElementById("chat-input-box").classList.add("border-[#1D3463]", "bg-white", "ring-2", "ring-[#1D3463]/10");
+      }, null, 7.8);
+
+      // 8.0s - 13.0s: Real human character-by-character typing:
+      const chatQuery = "Fleischner recommendation for this 3.2cm mass?";
+      const chatSteps = buildTypingSteps(chatQuery);
+      chatSteps.forEach((str, i) => {
+        const t = 8.0 + (i * 0.11);
+        tl.call(() => {
+          document.getElementById("chat-val").textContent = str;
+        }, null, t);
+      });
+
+      // 13.5s - 14.2s: Move cursor to Send Button
+      tl.to("#cursor", { x: 1870, y: 885, duration: 0.6, ease: "power2.inOut" }, 13.5);
+
+      // 14.5s: Click Send Button
+      tl.to("#chat-send-btn", { scale: 0.94, duration: 0.1 }, 14.5);
+      tl.to("#chat-send-btn", { scale: 1, duration: 0.15 }, 14.6);
+
+      // 14.7s: Clear input and show user message bubble
+      tl.call(() => {
+        document.getElementById("chat-caret").style.display = "none";
+        document.getElementById("chat-val").textContent = "";
+        document.getElementById("chat-ph").style.display = "inline";
+        document.getElementById("typed-query").textContent = chatQuery;
+        const u = document.getElementById("msg-user");
+        u.style.display = "block";
+      }, null, 14.7);
+      tl.to("#msg-user", { opacity: 1, duration: 0.2 }, 14.8);
+
+      // 15.5s: MedGemma synthesizes and returns guideline reply
+      tl.call(() => {
+        const a = document.getElementById("msg-ai");
+        a.style.display = "flex";
+      }, null, 15.5);
+      tl.to("#msg-ai", { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 15.6);
+
+      // 18.0s - 20.0s: Move cursor to Rx tab in middle panel
+      tl.to("#cursor", { x: 1220, y: 155, duration: 1.0, ease: "power2.inOut" }, 18.0);
+
+      // 20.2s: Switch to Rx tab
+      tl.call(() => {
+        document.getElementById("tab-report").classList.remove("bg-[#1D3463]", "text-white");
+        document.getElementById("tab-report").classList.add("text-[#637188]");
+        document.getElementById("tab-rx").classList.add("bg-[#1D3463]", "text-white");
+        document.getElementById("tab-rx").classList.remove("text-[#637188]");
+        document.getElementById("report-content").style.display = "none";
+        document.getElementById("rx-content").style.display = "flex";
+      }, null, 20.2);
+
+      // 22.0s - 24.0s: Move cursor to "Complete diagnosis" button at top right
+      tl.to("#cursor", { x: 1820, y: 95, duration: 1.0, ease: "power2.inOut" }, 22.0);
+
+      // 24.2s: Click "Complete diagnosis"
+      tl.to("#rx-complete-btn", { scale: 0.95, duration: 0.1 }, 24.2);
+      tl.to("#rx-complete-btn", { scale: 1, duration: 0.15 }, 24.3);
+
+      // 24.5s: 1-Click Electronic Prescription Modal Pops Up
+      tl.call(() => {
+        const mb = document.getElementById("rx-modal-backdrop");
+        mb.style.display = "flex";
+      }, null, 24.5);
+      tl.to("#rx-modal-backdrop", { opacity: 1, duration: 0.3 }, 24.6);
+      tl.to("#rx-modal-card", { scale: 1, duration: 0.35, ease: "back.out(1.4)" }, 24.6);
+
+      // 26.5s - 27.5s: Move cursor to "Print Prescription" button inside modal
+      tl.to("#cursor", { x: 1140, y: 640, duration: 0.8, ease: "power2.inOut" }, 26.5);
+
+      // 27.8s: Click "Print Prescription"
+      tl.to("#print-rx-btn", { scale: 0.95, duration: 0.1 }, 27.8);
+      tl.to("#print-rx-btn", { scale: 1, duration: 0.15 }, 27.9);
+      tl.call(() => {
+        const btn = document.getElementById("print-rx-btn");
+        btn.textContent = "✓ Sent to Receptionist Desk & Pharmacy";
+        btn.classList.remove("bg-[#1D3463]");
+        btn.classList.add("bg-[#147145]");
+      }, null, 28.2);
+
+      // 31.0s - 34.0s: Modal smooth completion
+      tl.to("#rx-modal-card", { scale: 0.98, opacity: 0.85, duration: 1.5, ease: "power2.inOut" }, 31.0);
+
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

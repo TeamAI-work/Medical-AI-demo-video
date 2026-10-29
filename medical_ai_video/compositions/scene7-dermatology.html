@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scene 7: Dermatology Clinical Co-Pilot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 p-0 overflow-hidden bg-[#EBEFF5]">
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          background-color: #EBEFF5;
+          background-image: 
+            radial-gradient(1200px 600px at 85% -10%, rgba(36, 107, 253, 0.08), transparent 60%),
+            radial-gradient(900px 500px at -10% 110%, rgba(29, 52, 99, 0.07), transparent 60%);
+          font-family: 'Inter', sans-serif;
+          color: #16233B;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .virtual-cursor {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          z-index: 150;
+          pointer-events: none;
+          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        .caret {
+          display: inline-block;
+          width: 2px;
+          height: 14px;
+          background: #1D3463;
+          margin-left: 1px;
+          vertical-align: middle;
+          animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+          0%, 49% { opacity: 1; }
+          50%, 100% { opacity: 0; }
+        }
+      </style>
+
+      <div data-hf-id="hf-root7" id="root" data-composition-id="scene7-dermatology" data-width="1920" data-height="1080">
+        <!-- Virtual Cursor -->
+        <svg data-hf-id="hf-cursor7" id="cursor" class="virtual-cursor clip" data-start="0.5" data-duration="21.5" viewBox="0 0 24 24" fill="none">
+          <path data-hf-id="hf-cpath7" d="M5.5 3.5l12 11.5-5.5 1-2.5 5-2.5-1 2.5-5-4-1.5z" fill="#16233B" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- ── Top Header Bar (Exact MedicalAi/src/App.jsx) ── -->
+        <header data-hf-id="hf-header7" class="relative shrink-0 w-full px-8 py-2.5 bg-white/90 backdrop-blur-md border-b border-[#DCE2EA] flex items-center justify-between shadow-[0_1px_2px_rgba(30,50,90,0.04)] z-30">
+          <div data-hf-id="hf-brand7" class="flex items-center gap-2.5 shrink-0">
+            <div class="w-8 h-8 rounded-xl border border-[#DCE2EA] bg-white shadow-xs flex items-center justify-center p-1">
+              <span class="font-black text-xs text-[#E13333] tracking-tighter leading-none select-none font-sans">MV</span>
+            </div>
+            <div class="min-w-0">
+              <h1 class="text-sm font-semibold text-[#16233B] tracking-tight leading-tight truncate">MedVision AI</h1>
+              <span class="text-[10px] text-[#637188] block truncate leading-tight">Life Care Medico Hospital</span>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-navpill7" class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <nav class="flex items-center bg-[#EBEFF4] p-1 rounded-full border border-[#DCE2EA] shadow-inner gap-1">
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] font-medium">dashboard</button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] font-medium">patients</button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full bg-[#1D3463] text-white shadow-xs font-semibold">report scan</button>
+              <button class="flex items-center gap-1.5 px-4 py-1 text-xs rounded-full text-[#637188] font-medium">settings</button>
+            </nav>
+          </div>
+
+          <div class="shrink-0 w-8"></div>
+        </header>
+
+        <!-- ── Main Workspace Body (Exact RadiologyWorkspace.jsx in Dermatology Mode) ── -->
+        <main class="flex-1 w-full p-4 flex flex-col gap-3 min-h-0 overflow-hidden">
+          
+          <!-- Top Patient Header -->
+          <div class="shrink-0 w-full bg-white/90 backdrop-blur-md rounded-2xl px-5 py-2.5 flex items-center justify-between border border-[#DCE2EA] shadow-xs">
+            <div class="flex items-center gap-3.5">
+              <div class="w-9 h-9 rounded-full bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A] flex items-center justify-center font-bold text-xs shrink-0">
+                EV
+              </div>
+              <div class="flex items-center gap-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h2 class="text-sm font-bold text-[#16233B]">Eleanor Vance</h2>
+                    <span class="text-xs text-[#637188] font-medium">(42y, Female)</span>
+                    <span class="px-2 py-0.2 rounded-full text-[10px] font-bold bg-[#FFF4DB] text-[#974D0C] border border-[#EB8D0A]/30">HIGH RISK LESION</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-[11px] text-[#637188] mt-0.5 font-mono">
+                    <span>ID: PT-DERM-4821</span>
+                    <span>•</span>
+                    <span>Modality: Polarized Contact Dermoscopy</span>
+                    <span>•</span>
+                    <span>Site: Right Scapula</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A]">
+                Dermatology (Cutaneous Oncology)
+              </span>
+            </div>
+          </div>
+
+          <!-- ── The Three-Section Split Screen ── -->
+          <div class="grid grid-cols-12 gap-3 flex-1 min-h-0 overflow-hidden">
+            
+            <!-- SECTION 1 (LEFT): DERMOSCOPY SCAN IMAGE -->
+            <div class="col-span-4 bg-white/95 rounded-2xl border border-[#DCE2EA] shadow-xs p-3.5 flex flex-col gap-3 min-h-0 overflow-hidden">
+              <div class="flex items-center justify-between pb-2 border-b border-[#DCE2EA] shrink-0">
+                <div class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+                  <span class="text-xs font-bold text-[#16233B]">Epiluminescence Image</span>
+                </div>
+                <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Optical 20x Zoom</span>
+              </div>
+
+              <!-- Lesion Viewer Screen -->
+              <div class="flex-1 min-h-[300px] rounded-xl overflow-hidden relative flex items-center justify-center border border-[#DCE2EA] bg-slate-900">
+                <img
+                  src="../assets/sample_data/dermatology_lesion.png"
+                  alt="Pigmented Cutaneous Lesion Dermoscopy"
+                  class="w-full h-full object-cover"
+                />
+
+                <!-- AI ABCD Lesion Contour Overlay -->
+                <div id="derm-contour" class="absolute w-[240px] h-[220px] rounded-full border-2 border-dashed border-amber-400/80 shadow-[0_0_20px_rgba(245,158,11,0.5)] flex flex-col justify-between p-2 pointer-events-none">
+                  <span class="self-start bg-amber-400 text-black text-[9px] font-black px-1.5 py-0.5 rounded uppercase">
+                    ABCD TDS: 7.4 (&gt; 5.45)
+                  </span>
+                  <span class="self-end bg-black/70 text-amber-300 text-[9px] font-mono px-1.5 py-0.5 rounded">
+                    Blue-White Veil (+)
+                  </span>
+                </div>
+              </div>
+
+              <!-- Attached PDF Report -->
+              <div class="pt-2 border-t border-[#DCE2EA] flex flex-col gap-1.5 shrink-0">
+                <div class="p-2 bg-[#F8FAFC] border border-[#DCE2EA] rounded-xl flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded bg-[#FDEAEA] text-[#E13333] flex items-center justify-center font-bold text-[10px]">PDF</div>
+                    <div>
+                      <div class="text-[11px] font-semibold text-[#16233B]">clinical_dermoscopy_evaluation.pdf</div>
+                      <div class="text-[9.5px] text-[#637188] font-mono">248 KB • Verified</div>
+                    </div>
+                  </div>
+                  <span class="text-[10px] text-[#246BFD] font-semibold">View</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 2 (MIDDLE): DIAGNOSTIC DERMATOLOGY REPORT & ABCD CRITERIA -->
+            <div class="col-span-4 bg-white/95 rounded-2xl border border-[#DCE2EA] shadow-xs flex flex-col min-h-0 overflow-hidden">
+              <div class="px-4 py-3 border-b border-[#DCE2EA] flex items-center justify-between bg-white shrink-0">
+                <h3 class="text-xs font-bold text-[#16233B] uppercase tracking-wider">Diagnostic Dermatology Report</h3>
+                <span class="text-[10px] font-mono text-[#637188] bg-[#F1F5F9] px-1.5 py-0.5 rounded border border-[#DCE2EA]">PT-DERM-4821</span>
+              </div>
+
+              <div class="p-4 flex-1 overflow-y-auto flex flex-col gap-3 text-xs leading-relaxed">
+                <!-- Indication -->
+                <div>
+                  <span class="font-bold text-[#16233B]">Indication:</span>
+                  <p class="text-[#475569] mt-0.5">Asymmetric pigmented scapular lesion enlarging over 3 months with border scalloping.</p>
+                </div>
+
+                <!-- ABCD Scoring Card (Exact Dermatology Specs) -->
+                <div class="p-3 bg-[#FFF4DB]/60 border border-[#EB8D0A]/30 rounded-xl flex flex-col gap-2">
+                  <div class="flex items-center justify-between border-b border-[#EB8D0A]/20 pb-1.5">
+                    <span class="font-bold text-[#974D0C] text-xs">ABCD Dermatoscopic Scoring Matrix</span>
+                    <span class="font-mono font-bold text-[11px] text-[#974D0C]">TDS: 7.4 / 8.0</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-2 text-[11px]">
+                    <div><strong>A - Asymmetry:</strong> Marked dual-axis (2/2)</div>
+                    <div><strong>B - Border:</strong> Notched, abrupt cut-off (2/2)</div>
+                    <div><strong>C - Color:</strong> Black, brown, blue-white (2/2)</div>
+                    <div><strong>D - Diameter:</strong> 7.2 mm (&gt;6mm threshold)</div>
+                  </div>
+                </div>
+
+                <!-- Impression Box -->
+                <div class="p-3 bg-[#FDEAEA] border border-[#E13333]/30 rounded-xl flex flex-col gap-1.5">
+                  <span class="font-bold text-[#AD1F1F]">Diagnostic Impression:</span>
+                  <p class="text-[#16233B] font-medium text-[11.5px]">
+                    1. High dermatoscopic suspicion for early <strong>Invasive Cutaneous Melanoma</strong>.<br/>
+                    2. Immediate complete excisional biopsy with 2mm clinical margins required.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 3 (RIGHT): REPORTCHATPANEL.JSX CO-PILOT -->
+            <div class="col-span-4 bg-white/95 rounded-2xl border border-[#DCE2EA] shadow-xs flex flex-col min-h-0 overflow-hidden">
+              <div class="px-4 py-3 bg-white border-b border-[#DCE2EA] flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-xl bg-[#E7EEFE] text-[#154CC1] border border-[#246BFD]/25 flex items-center justify-center shrink-0 shadow-xs">
+                    <svg class="w-4 h-4 text-[#246BFD]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-[#16233B] leading-tight">Clinical Report AI Co-Pilot</h4>
+                    <span class="text-[10px] text-[#637188] block">Grounded in Dermoscopy & ABCD criteria</span>
+                  </div>
+                </div>
+                <span class="text-[10px] font-semibold text-amber-800 bg-[#FFF4DB] px-2 py-0.5 rounded-full border border-[#EB8D0A]/30">MedGemma Derm</span>
+              </div>
+
+              <!-- Suggested Prompts (Exact departmentPrompts for Dermoscopy) -->
+              <div class="px-3 py-2 bg-[#F8FAFC] border-b border-[#DCE2EA] flex items-center gap-1.5 overflow-x-auto shrink-0">
+                <span class="px-2.5 py-1 bg-white hover:bg-slate-50 border border-[#DCE2EA] rounded-full text-[10.5px] font-medium text-[#16233B] whitespace-nowrap">Summarize ABCD criteria</span>
+                <span class="px-2.5 py-1 bg-white hover:bg-slate-50 border border-[#DCE2EA] rounded-full text-[10.5px] font-medium text-[#16233B] whitespace-nowrap">Recommend excision margins</span>
+                <span class="px-2.5 py-1 bg-white hover:bg-slate-50 border border-[#DCE2EA] rounded-full text-[10.5px] font-medium text-[#16233B] whitespace-nowrap">List differential diagnoses</span>
+              </div>
+
+              <!-- Chat Message Thread -->
+              <div id="chat-thread" class="p-3.5 flex-1 overflow-y-auto flex flex-col gap-3 min-h-0 text-xs">
+                <!-- User message -->
+                <div id="msg-user" class="px-3.5 py-2.5 rounded-2xl bg-[#1D3463] text-white text-xs max-w-[85%] self-end shadow-xs" style="display: none; opacity: 0;">
+                  <span id="typed-query"></span>
+                </div>
+
+                <!-- AI response -->
+                <div id="msg-ai" class="px-3.5 py-2.5 rounded-2xl bg-[#F8FAFC] border border-[#DCE2EA] text-[#16233B] text-xs max-w-[92%] self-start flex flex-col gap-1.5 shadow-2xs" style="display: none; opacity: 0;">
+                  <div class="flex items-center gap-1.5 font-bold text-[#154CC1] text-[11px]">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/></svg>
+                    <span>MedGemma Cutaneous Oncology Guidance</span>
+                  </div>
+                  <p class="leading-relaxed text-[11.5px]">
+                    Per <strong>AAD / NCCN Guidelines</strong> for suspicious melanocytic lesions:
+                  </p>
+                  <ul class="list-disc pl-4 space-y-0.5 text-[11px] text-[#475569]">
+                    <li>Perform <strong>complete narrow-margin excisional biopsy</strong> with 1-2mm clinical margins down to subcutaneous fat.</li>
+                    <li>Avoid wide excision (&gt;10mm) prior to histological Breslow depth staging.</li>
+                    <li>Order immediate rapid frozen section or permanent pathology workup.</li>
+                  </ul>
+                  <div class="pt-1 border-t border-[#E2E8F0] text-[9.5px] text-[#637188] flex items-center justify-between">
+                    <span>Guideline Concordance: 99.1%</span>
+                    <span>Ref: AAD Melanoma Guidelines 2024</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input Box -->
+              <div class="p-3 bg-white border-t border-[#DCE2EA] flex items-center gap-2 shrink-0">
+                <div id="chat-input-box" class="flex-1 bg-[#F8FAFC] border border-[#DCE2EA] rounded-xl px-3 py-2 text-xs flex items-center min-h-[36px]">
+                  <span id="chat-val" class="font-medium text-[#16233B]"></span>
+                  <span id="chat-caret" class="caret" style="display: none;"></span>
+                  <span id="chat-ph" class="text-[#8C98A9]">Ask clinical co-pilot about this dermoscopy...</span>
+                </div>
+                <button id="chat-send-btn" class="w-8 h-8 rounded-xl bg-[#1D3463] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <script>
+        (function() {
+          const tl = gsap.timeline({ paused: true });
+          window.__timelines = window.__timelines || {};
+      window.__timelines["scene7-dermatology"] = tl;
+
+      function buildTypingSteps(text) {
+        const steps = [];
+        for (let i = 1; i <= text.length; i++) {
+          steps.push(text.slice(0, i));
+        }
+        return steps;
+      }
+
+      // Initial state
+      tl.set("#cursor", { x: 500, y: 300, opacity: 0 });
+      tl.set("#derm-contour", { scale: 0.9, opacity: 0 });
+      tl.set("#msg-user", { display: "none", opacity: 0 });
+      tl.set("#msg-ai", { display: "none", opacity: 0 });
+
+      // 0.0s - 0.5s: Cursor enters
+      tl.to("#cursor", { opacity: 1, duration: 0.3 }, 0.5);
+
+      // 1.0s: AI ABCD Contour highlights lesion boundaries
+      tl.to("#derm-contour", { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, 1.0);
+
+      // 2.5s - 4.5s: Cursor inspects lesion and moves towards chat co-pilot
+      tl.to("#cursor", { x: 380, y: 480, duration: 1.0, ease: "power2.inOut" }, 2.5);
+
+      // 5.5s - 7.5s: Move cursor to Chat Input Box
+      tl.to("#cursor", { x: 1600, y: 885, duration: 1.2, ease: "power2.inOut" }, 5.5);
+
+      // 7.8s: Focus Chat Input
+      tl.call(() => {
+        document.getElementById("chat-ph").style.display = "none";
+        document.getElementById("chat-caret").style.display = "inline-block";
+        document.getElementById("chat-input-box").classList.add("border-[#1D3463]", "bg-white", "ring-2", "ring-[#1D3463]/10");
+      }, null, 7.8);
+
+      // 8.0s - 12.0s: Real character typing of question:
+      const chatQuery = "Recommend surgical excision margins for this lesion?";
+      const chatSteps = buildTypingSteps(chatQuery);
+      chatSteps.forEach((str, i) => {
+        const t = 8.0 + (i * 0.08);
+        tl.call(() => {
+          document.getElementById("chat-val").textContent = str;
+        }, null, t);
+      });
+
+      // 12.5s - 13.2s: Move cursor to Send Button
+      tl.to("#cursor", { x: 1870, y: 885, duration: 0.5, ease: "power2.inOut" }, 12.5);
+
+      // 13.5s: Click Send
+      tl.to("#chat-send-btn", { scale: 0.94, duration: 0.1 }, 13.5);
+      tl.to("#chat-send-btn", { scale: 1, duration: 0.15 }, 13.6);
+
+      // 13.7s: Show user bubble
+      tl.call(() => {
+        document.getElementById("chat-caret").style.display = "none";
+        document.getElementById("chat-val").textContent = "";
+        document.getElementById("chat-ph").style.display = "inline";
+        document.getElementById("typed-query").textContent = chatQuery;
+        const u = document.getElementById("msg-user");
+        u.style.display = "block";
+      }, null, 13.7);
+      tl.to("#msg-user", { opacity: 1, duration: 0.2 }, 13.8);
+
+      // 14.5s: AI Guidance streams in
+      tl.call(() => {
+        const a = document.getElementById("msg-ai");
+        a.style.display = "flex";
+      }, null, 14.5);
+      tl.to("#msg-ai", { opacity: 1, duration: 0.4, ease: "power2.out" }, 14.6);
+
+      // 16.0s - 17.5s: Move cursor to inspect excision margin recommendations
+      tl.to("#cursor", { x: 1650, y: 560, duration: 1.2, ease: "power2.inOut" }, 16.0);
+
+      // 18.0s - 19.5s: Move cursor to Diagnostic Impression in center report
+      tl.to("#cursor", { x: 1100, y: 680, duration: 1.2, ease: "power2.inOut" }, 18.0);
+
+      // 20.0s - 21.5s: Cursor glides toward Complete Diagnosis button
+      tl.to("#cursor", { x: 1820, y: 95, duration: 1.2, ease: "power2.inOut" }, 20.0);
+
+          tl.seek(0);
+        })();
+      </script>
+    </template>
+  </body>
+</html>
